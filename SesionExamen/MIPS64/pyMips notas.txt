@@ -1,0 +1,84 @@
+FUNCIONAMIENTO DEL PIPELINE
+5 etapas en las que se divide el cauce de ejecución se ejecutan secuencialmente y no en paralelo
+frecuencia de reloj de 400 MHz --> 5 etapas/ 0.4 GHz = 12.5 ns
+tiempo para completar un programa de 10 instrucciones --> 12.5 * 10 = 125
+productividad teorica en MIPS --> 1 inst/12.5 ns = 80.000.000 ~~ 80 MIPS
+
+5 etapas trabajan en paralelo, ¿cuál es la productividad máxima teórica de esta CPU en MIPS que trabaja a 400 MHz?
+etapa / 0.4 GHz = 2.5 ns
+prod. max en MIPS = 1/2.5 = 400 MIPS
+ciclos necesarios para generar para ejecutar 10 instrucciones en paralelo = 4 + 10 = 14
+
+CPU MIPS64 secuencial con dependecia de datos (RAW), 7 instrucciones --> 35
+aceleración condiciones ideales/ real: < 1
+aceleración no segmentada/secuencial : > 1
+
+Si no existiesen detenciones en la segmentación, ¿cuántos ciclos de reloj 
+invertiría la CPU en ejecutar el programa? --> j dest --> 7 instrucciones --> ciclos = 4+7 = 11
+
+
+SESION2-3 
+¿Qué instrucciones tienen dependencias de datos RAW? ¿De qué otras instrucciones dependen? 
+¿Qué registros crean esas dependencias?
+Contar hasta las que sabemos que no producen detenciones.
+
+La instrucción ld r8, 120(r1) depende de la instrucción daddi r1, r2,5 a través del registro r1. Sin embargo, esta dependencia no produce detenciones.
+La instrucción ld r8, 120(r1) depende de la instrucción xor r1, r5, r3 a través del registro r1.
+La instrucción and r8, r4, r1 depende de la instrucción daddi r1, r2, 5 a través del registro r1. Sin embargo, esta dependencia no produce detenciones.
+La instrucción and r8, r4, r1 depende de la instrucción xor r1, r5, r3 a través del registro r1. Sin embargo, esta dependencia no produce detenciones.
+
+La suma del número de instrucciones, más el número de ciclos de detención, más el transitorio inicial de 4 ciclos debe coincidir
+con el número de ciclos del programa.
+cpi = Ciclos por instruccion = 17 ciclos/8 instrucciones = 2,...
+
+RUTAS DE REENVIO:
+Salida EX ori r1, r0, 2 -> Entrada EX daddi r2, r1, 1
+Salida MEM ori r1, r0, 2 -> Entrada EX ori r3, r1, 7
+Salida MEM ld r4, var1(r1) -> Entrada EX dadd r6, r4, r4
+Salida EX ori r5, r4, 8 -> Entrada ID beqz r5, main
+
+RENOMBRADO DE REGISTROS:
+La instrucción dadd r3, r5, r5 tiene una dependencia WAW de la instrucción dmul r3, r1, r1 a través del registro r3.
+detención de 4 ciclos por la dependencia WAW para imponer que la instrucción dadd termine después de la instrucción dmul.
+CPI descontando transitorio inicial = 4 + 4 = 8 --> 8 ciclos / 4 instrucciones = 2
+Explicacion de CPI tan alto: La detención WAW de cuatro ciclos y la instrucción dmul de 5 ciclos   
+
+Instrucción r5, r0, 20
+Etapa ID: r5 --> rr32     0
+
+Instrucción ori r1, r0, 10
+Etapa ID: r1 --> rr33    
+
+Instrucción dmul r3, r1, r1
+Etapa ID: r3 --> rr34     
+Etapa ID: r1 --> rr33   1
+Etapa WB: r1 --> rr33   0
+
+Instrucción dadd r3, r5, r5
+Etapa ID: r3 --> rr35     0
+Etapa ID: r5 --> rr32     1
+Etapa WB: r5 --> rr32   0
+
+Desactiva out-of-order retirement. ciclos de detención sufre la instrucción dadd en su fase de ejecución
+Sufre cuatro ciclos debido a una dependencia IOT (In order termination) debido al soporte de excepciones precisas
+
+TWO-BYT DINAMIC
+El salto incondicional produce detención sólo la primera vez que se ejecuta pues no se dispone del destino del salto. 
+En las demás ejecuciones el destino del salto está en la tabla y ya no produce detención.
+
+porq no hay detención de control? --> No la produce pues al haberse ejecutado antes su dirección destino de salto está ya almacenada en la tabla.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

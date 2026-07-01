@@ -1,0 +1,294 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2023.10.27 22:52:43 =~=~=~=~=~=~=~=~=~=~=~=
+login as: student
+student@localhost's password: 
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-210-generic i686)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+12 packages can be updated.
+2 updates are security updates.
+
+New release '18.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Oct 27 13:36:45 2023 from 10.0.2.2
+student@2ac:~$ c dd practica-Eexam,een
+student@2ac:~/practica-examen$ dpwd
+/home/student/practica-examen
+student@2ac:~/practica-examen$ ls
+readme  sesion1-1  sesion1-2  sesion1-2.tar.gz  sesion1-3  sesion1-3.tar.gz
+student@2ac:~/practica-examen$ cd sesion1-.3
+student@2ac:~/practica-examen/sesion1-3$ nano prog1.c
+[ Reading File ][ Read 100 lines ]  GNU nano 2.5.3               File: prog1.c                                    #include <stdlib.h>#define TAM 100000#define BOOLEAN int#define TRUE 1#define FALSE 0void rellenarConAleatorios(int array[], int n){ int i;// Inicialización del generador aleatoriostatic int semilla = 0;srand(semilla++);// Generación de números entre 1 y 1000 for (i = 0; i < n ; i++) array[i] = rand() % 1000 + 1;^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Line}void ordenarVector(int* vector, int tamVector){ int i, j, iMin, temp;// Ordenación por el método de selection sortfor (i = 0; i < tamVector; i++) { iMin = i;for (j = i+1; j < tamVector; j++){ if (vector[j] < vector[iMin]){ iMin = j;temp = vector[i];vector[i] = vector[iMin];vector[j] = temp;}}  }}BOOLEAN estaEnVector(int num, int vector[], int tamVector){ int i;for (i = 0; i < tamVector; i++){ if (vector[i] == num)student@2ac:~/practica-examen/sesion1-3$ gc c prog1.c -o prog1
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.750s
+user0m8.748s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.739s
+user0m8.736s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.771s
+user0m8.768s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.839s
+user0m8.836s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.743s
+user0m8.740s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ gcc prog1.c -pg -o prog1
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m9.150s
+user0m9.148s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ ls
+gmon.out  Makefile  prog1  prog1.c  prog2.c
+student@2ac:~/practica-examen/sesion1-3$ gprof ./prog1 > informe.txt
+student@2ac:~/practica-examen/sesion1-3$ nano infomrme.txt
+[ Reading File ][ Read 166 lines ]  GNU nano 2.5.3             File: informe.txt                                  Flat profile:Each sample counts as 0.01 seconds.%   cumulative   selfself     total time   seconds   seconds    calls   s/call   s/call  name 97.811.34     1.341     1.34     1.34  ordenarVector2.191.37     0.03   100000     0.00     0.00  estaEnVector0.001.37     0.00   100000     0.00     0.00  esPrimo0.001.37     0.002     0.00     0.00  rellenarConAleatorios0.001.37     0.001     0.00     0.03  contarPrimosComunes %the percentage of the total running time of thetimeprogram used by this function.cumulative a running sum of the number of seconds accounted seconds   for by this function and those listed above it. selfthe number of seconds accounted for by thisseconds    function alone.  This is the major sort for this^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Linestudent@2ac:~/practica-examen/sesion1-3$ gcc prog2.c -o o -o prog2
+gcc: error: prog2.o: No such file or directory
+gcc: fatal error: no input files
+compilation terminated.
+student@2ac:~/practica-examen/sesion1-3$ gcc -c prog2-.c
+student@2ac:~/practica-examen/sesion1-3$ gcc prog2.c -o prog2
+student@2ac:~/practica-examen/sesion1-3$ time g./prog2
+
+real0m0.167s
+user0m0.164s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog2
+
+real0m0.152s
+user0m0.148s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog2
+
+real0m0.152s
+user0m0.152s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog2
+
+real0m0.153s
+user0m0.152s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog2
+
+real0m0.152s
+user0m0.148s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog2gcc prog2.c -o prog2-c prog2.cprog2.o -o prog2nano informe.txtgprof ./prog1 >lstime ./prog1gcc prog1.c -pg -o prog1¡22
+student@2ac:~/practica-examen/sesion1-3$ gcc prog2.c -pg -o prog2time ./prog2gcc prog2.c -o prog2-c prog2.cprog2.o -o prog2nano informe.txtgprof ./prog1 >2
+student@2ac:~/practica-examen/sesion1-3$ gprof ./prog2 > informe.txt2.txt
+student@2ac:~/practica-examen/sesion1-3$ gprof ./prog2 > informe2.txt.txtcc prog2.c -pg -o prog2time ./prog2gcc prog2.c -o prog2-c prog2.cprog2.o -o prog2nano informe.txtgprof ./prog1 >nano2.txt
+[ Reading File ][ Read 160 lines ]  GNU nano 2.5.3             File: informe2.txt                                 Flat profile:Each sample counts as 0.01 seconds.%   cumulative   selfself     total time   seconds   seconds    calls  us/call  us/call  name100.001.37     1.37   200001     6.85     6.85  sort0.001.37     0.002     0.00     0.00  rellenarConAleatorios0.001.37     0.001     0.00     0.00  swap %the percentage of the total running time of thetimeprogram used by this function.cumulative a running sum of the number of seconds accounted seconds   for by this function and those listed above it. selfthe number of seconds accounted for by thisseconds    function alone.  This is the major sort for thislisting.^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Line[ Unknown Commandstudent@2ac:~/practica-examen/sesion1-3$ nano informe2.txtgprof ./prog2 >.txt1.txt
+student@2ac:~/practica-examen/sesion1-3$ gprof ./prog2 > informe1.txtnano informe2.txt.txt1.txt
+[ Reading File ][ Read 160 lines ]  GNU nano 2.5.3             File: informe1.txt                                 Flat profile:Each sample counts as 0.01 seconds.%   cumulative   selfself     total time   seconds   seconds    calls  us/call  us/call  name100.001.37     1.37   200001     6.85     6.85  sort0.001.37     0.002     0.00     0.00  rellenarConAleatorios0.001.37     0.001     0.00     0.00  swap %the percentage of the total running time of thetimeprogram used by this function.cumulative a running sum of the number of seconds accounted seconds   for by this function and those listed above it. selfthe number of seconds accounted for by thisseconds    function alone.  This is the major sort for thislisting.^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Linestudent@2ac:~/practica-examen/sesion1-3$ nano informe1.txtgprof ./prog2 >nano informe2.txtgprof ./prog2 > informe1.txtnano informet.txt
+[ Reading File ][ Read 160 lines ]  GNU nano 2.5.3             File: informe.txt                                  Flat profile:Each sample counts as 0.01 seconds.%   cumulative   selfself     total time   seconds   seconds    calls  us/call  us/call  name100.001.37     1.37   200001     6.85     6.85  sort0.001.37     0.002     0.00     0.00  rellenarConAleatorios0.001.37     0.001     0.00     0.00  swap %the percentage of the total running time of thetimeprogram used by this function.cumulative a running sum of the number of seconds accounted seconds   for by this function and those listed above it. selfthe number of seconds accounted for by thisseconds    function alone.  This is the major sort for thislisting.^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Linestudent@2ac:~/practica-examen/sesion1-3$ ^C
+student@2ac:~/practica-examen/sesion1-3$ ^C
+student@2ac:~/practica-examen/sesion1-3$ GCC gcc -01 prog1.c -o prog1
+gcc: error: unrecognized command line option -01
+student@2ac:~/practica-examen/sesion1-3$ gcc -01 prog1.c -o prog1o
+student@2ac:~/practica-examen/sesion1-3$ gcc -o1 prog1.c -o prog1time. ./prog1
+
+real0m8.707s
+user0m8.704s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.802s
+user0m8.800s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.734s
+user0m8.732s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.797s
+user0m8.796s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.741s
+user0m8.740s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1gcc -o1 prog1.c -o prog102
+gcc: error: unrecognized command line option -02
+student@2ac:~/practica-examen/sesion1-3$ gcc -02 prog1.c -o prog1time ./prog1gcc -o1 prog1.c -o prog12
+student@2ac:~/practica-examen/sesion1-3$ gcc -o2 prog1.c -o prog10time ./prog1
+
+real0m8.760s
+user0m8.756s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.794s
+user0m8.796s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.774s
+user0m8.764s
+sys0m0.008s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.837s
+user0m8.832s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m8.762s
+user0m8.760s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1gcc -o2 prog1.c -o prog13
+student@2ac:~/practica-examen/sesion1-3$ gcc -o3 prog1.c -o prog1time ./prog1
+
+real0m8.781s
+user0m8.776s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ gcc -O1 prog1.c -o prog1
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.499s
+user0m2.496s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+^[[A
+real0m2.471s
+user0m2.468s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1gcc -O1 prog1.c -o prog1
+student@2ac:~/practica-examen/sesion1-3$ gcc -O1 prog1.c -o prog1gcc -O1 prog1.c -o prog1time ./prog1
+^[[A^[[A^[[A
+real0m2.481s
+user0m2.480s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1gcc -O1 prog1.c -o prog1gcc -O1 prog1.c -o prog1time ./prog1
+
+real0m2.483s
+user0m2.480s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.458s
+user0m2.456s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1gcc -O1 prog1.c -o prog1gcc -O1 prog1.c -o prog12
+student@2ac:~/practica-examen/sesion1-3$ gcc -O2 prog1.c -o prog1time ./prog1
+
+real0m2.457s
+user0m2.460s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.462s
+user0m2.460s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.471s
+user0m2.468s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.508s
+user0m2.504s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.471s
+user0m2.468s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1gcc -O2 prog1.c -o prog13
+student@2ac:~/practica-examen/sesion1-3$ gcc -O3 prog1.c -o prog1time ./prog1
+
+real0m2.462s
+user0m2.460s
+sys0m0.004s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.447s
+user0m2.444s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.458s
+user0m2.456s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.473s
+user0m2.472s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1
+
+real0m2.477s
+user0m2.476s
+sys0m0.000s
+student@2ac:~/practica-examen/sesion1-3$ time ./prog1gcc prog1.c -O3 -pg -o prog1
+student@2ac:~/practica-examen/sesion1-3$ ./PROG1
+-bash: ./PROG1: No such file or directory
+student@2ac:~/practica-examen/sesion1-3$ ./prog1
+student@2ac:~/practica-examen/sesion1-3$ gprof ./prog1 > informe.txt
+student@2ac:~/practica-examen/sesion1-3$ nano informe.txt
+[ Reading File ][ Read 39 lines  GNU nano 2.5.3             File: informe.txt                                  Flat profile:Each sample counts as 0.01 seconds.%   cumulative   selfself     total time   seconds   seconds    calls  Ts/call  Ts/call  name100.002.45     2.45ordenarVector %the percentage of the total running time of thetimeprogram used by this function.cumulative a running sum of the number of seconds accounted seconds   for by this function and those listed above it. selfthe number of seconds accounted for by thisseconds    function alone.  This is the major sort for thislisting.callsthe number of times this function was invoked, ifthis function is profiled, else blank.^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Linestudent@2ac:~/practica-examen/sesion1-3$ nano informe.txtgprof ./prog1 >./prog1PROG1gcc prog1.c -O3 -pg -o prog11
+student@2ac:~/practica-examen/sesion1-3$ gcc prog1.c -O1 -pg -o prog1nano informe.txtgprof ./prog1 >./prog1
+student@2ac:~/practica-examen/sesion1-3$ ./prog1gcc prog1.c -O1 -pg -o prog1nano informe.txtgprof ./prog1 >
+student@2ac:~/practica-examen/sesion1-3$ gprof ./prog1 > informe.txt./prog1gcc prog1.c -O1 -pg -o prog1nano informe.txt
+[ Reading File ][ Read 150 lines ]  GNU nano 2.5.3             File: informe.txt                                  Flat profile:Each sample counts as 0.01 seconds.%   cumulative   selfself     total time   seconds   seconds    calls   s/call   s/call  name100.002.46     2.461     2.46     2.46  ordenarVector0.002.46     0.002     0.00     0.00  rellenarConAleatorios %the percentage of the total running time of thetimeprogram used by this function.cumulative a running sum of the number of seconds accounted seconds   for by this function and those listed above it. selfthe number of seconds accounted for by thisseconds    function alone.  This is the major sort for thislisting.callsthe number of times this function was invoked, if^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Linestudent@2ac:~/practica-examen/sesion1-3$ git add Tema1ls
+gmon.out      informe2.txt  Makefile  prog1.c  prog2.c
+informe1.txt  informe.txt   prog1     prog2    prog2.o
+student@2ac:~/practica-examen/sesion1-3$ ls
+gmon.out      informe2.txt  Makefile            prog1    prog2    prog2.o
+informe1.txt  informe.txt   PracticaExamen.xls  prog1.c  prog2.c
+student@2ac:~/practica-examen/sesion1-3$ git add prPracticaExamen.xls
+student@2ac:~/practica-examen/sesion1-3$ çgit commit
+[ Reading File ][ Read 48 lines  GNU nano 2.5.3 File: ...student/practica-examen/.git/COMMIT_EDITMSG           # Please enter the commit message for your changes. Lines starting# with '#' will be ignored, and an empty message aborts the commit.# On branch master# Your branch is up-to-date with 'origin/master'.## Changes to be committed:#new file:   PracticaExamen.xls## Untracked files:#../sesion1-1/.1.1root.c.swp#../sesion1-1/1-1add.c#../sesion1-1/1-1add.o#../sesion1-1/1-1circle.c#../sesion1-1/1-1circle.h#../sesion1-1/1-1circle.o#../sesion1-1/1-1explicit#../sesion1-1/1-1explicit.o#../sesion1-1/1-1implicit^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To LineModifiedTema1    Ex CompiladoresSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                     Y Yes N No     ^C CancelFile Name to Write: /home/student/practica-examen/.git/COMMIT_EDITMSG^G Get Help     M-D DOS Format  M-A AppendM-B Backup File^C CancelM-M Mac Format  M-P Prepend     ^T To Files [ Wrote 48 lines ]        [master 787f471] Compiladores
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 sesion1-3/PracticaExamen.xls
+student@2ac:~/practica-examen/sesion1-3$ git puhsh
+warning: push.default is unset; its implicit value has changed in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the traditional behavior, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+Since Git 2.0, Git defaults to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 9.80 KiB | 0 bytes/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+To https://uo296102@bitbucket.org/arquitectura-de-computadores/practica-examen.git
+   8e9ddaa..787f471  master -> master
+student@2ac:~/practica-examen/sesion1-3$ 
+student@2ac:~/practica-examen/sesion1-3$ git sudo powerroff
+[sudo] password for student: 

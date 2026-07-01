@@ -1,0 +1,504 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2023.10.27 10:59:52 =~=~=~=~=~=~=~=~=~=~=~=
+login as: student
+student@localhost's password: 
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-210-generic i686)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+64 packages can be updated.
+2 updates are security updates.
+
+New release '18.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Oct 27 10:58:22 2023 from 10.0.2.2
+student@2ac:~$ pwd
+/home/student
+student@2ac:~$ cd /
+student@2ac:/$ cd etc
+student@2ac:/etc$ cd /usr/include
+student@2ac:/usr/include$ cd -
+/etc
+student@2ac:/etc$ cd ..
+student@2ac:/$ pwd
+/
+student@2ac:/$ cd
+student@2ac:~$ cd %$~
+student@2ac:~$ cd ~HOME
+-bash: cd: ~HOME: No such file or directory
+student@2ac:~$ cd $HOOMME
+student@2ac:~$ cd pwd
+/home/student
+student@2ac:~$ cd ..
+student@2ac:/home$ pwd
+/home
+student@2ac:/home$ cd
+student@2ac:~$ pwd
+/home/student
+student@2ac:~$ cd ..
+student@2ac:/home$ pwd
+/home
+student@2ac:/home$ cd ~
+student@2ac:~$ pwd
+/home/student
+student@2ac:~$ cat/et /etc/hostname
+2ac
+student@2ac:~$ cd
+student@2ac:~$ pwd
+/home/student
+student@2ac:~$ cat ../../etc//hostname
+2ac
+student@2ac:~$ cd /etc
+student@2ac:/etc$ cat hostname
+2ac
+student@2ac:/etc$ cd ..
+student@2ac:/$ cat ./etc/hostname
+2ac
+student@2ac:/$ cart /etc/etc/hostname
+2ac
+student@2ac:/$ ls
+bin   etc         initrd.img.old  media  proc  sbin  sys  var
+boot  home        lib             mnt    root  snap  tmp  vmlinuz
+dev   initrd.img  lost+found      opt    run   srv   usr  vmlinuz.old
+student@2ac:/$ cd
+student@2ac:~$ nano -c 1-1texto.txt
+[ New File ]  GNU nano 2.5.3             File: 1-1texto.txt                                 ^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To LineModifiedfdx[ line 1/2 (50%), col 4/4 (100%), char 3/4 (75%) ]o5/54/5 (80t6/65/6 (83j7/76/7 (85g8/87/8 (87t9/98/9 (88d[ line 1/2 (50%), col 10/109/10 (90%) ]g1/1110/11 (90%) ]d2/121/12 (91o3/132/13 (92pg5/154/15 (93d6/165/16o7/176/17 (94g8/187/18d9/198/19z20/209/20 (95File Name to Write: 1-1texto.txt                                                   M-D DOS Format  M-A Append      M-B Backup FileC Cancel       M-M Mac Format  M-P Prepend     ^T To Files [ Wrote 1 line ]        ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur PosX Exit      ^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Linestudent@2ac:~$ nano -c /home/student/1-1textop.txt
+[ Reading File ] 1 line ]  GNU nano 2.5.3        File: /home/student/1-1texto.txt                        fdxotjgtdgdopgdogdz^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Linestudent@2ac:~$ ls -l
+total 4
+-rw-rw-r-- 1 student student 20 Oct 27 11:10 1-1texto.txt
+student@2ac:~$ chmod -w 1-1texto.txt
+student@2ac:~$ ls -l 1-1texto.txt
+-r--r--r-- 1 student student 20 Oct 27 11:10 1-1texto.txt
+student@2ac:~$ whoami
+student
+student@2ac:~$ apt-get upaddate
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+W: chmod 0700 of directory /var/lib/apt/lists/partial failed - SetupAPTPartialDirectory (1: Operation not permitted)
+E: Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+E: Unable to lock directory /var/lib/apt/lists/
+W: Problem unlinking the file /var/cache/apt/pkgcache.bin - RemoveCaches (13: Permission denied)
+W: Problem unlinking the file /var/cache/apt/srcpkgcache.bin - RemoveCaches (13: Permission denied)
+student@2ac:~$ sudo apt.get.-get update
+[sudo] password for student: 
+0% [Working]            Hit:1 http://es.archive.ubuntu.com/ubuntu xenial InRelease
+0% [Waiting for headers]0% [1 InRelease gpgv 247 kB] [Waiting for headers] [Waiting for headers]                                                                        Hit:2 http://es.archive.ubuntu.com/ubuntu xenial-updates InRelease
+0% [1 InRelease gpgv 247 kB] [Waiting for headers] [Waiting for headers]                                                                        Hit:3 http://security.ubuntu.com/ubuntu xenial-security InRelease
+                                                                        0% [1 InRelease gpgv 247 kB] [Waiting for headers]                                                  0% [Waiting for headers]0% [2 InRelease gpgv 99.8 kB] [Waiting for headers]                                                   Hit:4 http://es.archive.ubuntu.com/ubuntu xenial-backports InRelease
+                                                   0% [2 InRelease gpgv 99.8 kB]                             0% [Working]0% [3 InRelease gpgv 99.8 kB]                             0% [Working]0% [4 InRelease gpgv 97.4 kB]                             20% [Working]             Reading package lists... 0%Reading package lists... 0%Reading package lists... 1%Reading package lists... 5%Reading package lists... 5%Reading package lists... 8%Reading package lists... 8%Reading package lists... 8%Reading package lists... 8%Reading package lists... 8%Reading package lists... 8%Reading package lists... 43%Reading package lists... 43%Reading package lists... 62%Reading package lists... 62%Reading package lists... 62%Reading package lists... 62%Reading package lists... 63%Reading package lists... 63%Reading package lists... 69%Reading package lists... 69%Reading package lists... 71%Reading package lists... 76%Reading package lists... 76%Reading package lists... 76%Reading package lists... 76%Reading package lists... 76%Reading package lists... 76%Reading package lists... 81%Reading package lists... 81%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 88%Reading package lists... 88%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 97%Reading package lists... 97%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+student@2ac:~$ sudo apt-get upgrade
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+Calculating upgrade... 0%Calculating upgrade... 50%Calculating upgrade... Done
+The following packages have been kept back:
+  apt apt-utils base-files dpkg libapt-pkg5.0 ubuntu-advantage-tools
+  ubuntu-server update-notifier-common
+The following packages will be upgraded:
+  apt-transport-https bsdutils cloud-guest-utils dmidecode dpkg-dev
+  grub-common grub-legacy-ec2 grub-pc grub-pc-bin grub2-common initramfs-tools
+  initramfs-tools-bin initramfs-tools-core libapt-inst2.0 libblkid1
+  libdpkg-perl libfdisk1 libgnutls-openssl27 libgnutls30 libmount1
+  libpam-modules libpam-modules-bin libpam-runtime libpam-systemd libpam0g
+  libprocps4 libseccomp2 libsmartcols1 libsystemd0 libudev1 libuuid1 mount
+  openssh-client openssh-server openssh-sftp-server procps python-apt-common
+  python3-apt python3-distupgrade python3-update-manager sosreport systemd
+  systemd-sysv ubuntu-keyring ubuntu-minimal ubuntu-release-upgrader-core
+  ubuntu-standard udev unattended-upgrades update-manager-core util-linux
+  uuid-runtime
+52 upgraded, 0 newly installed, 0 to remove and 8 not upgraded.
+Need to get 14.0 MB of archives.
+After this operation, 286 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+0% [Working]            Get:1 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 bsdutils i386 1:2.27.1-6ubuntu3.10 [53.0 kB]
+0% [1 bsdutils 0 B/53.0 kB 0%]                              1% [Working]            Get:2 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 util-linux i386 2.27.1-6ubuntu3.10 [876 kB]
+1% [2 util-linux 0 B/876 kB 0%]                               6% [Working]            Get:3 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 mount i386 2.27.1-6ubuntu3.10 [127 kB]
+6% [3 mount 0 B/127 kB 0%]                          7% [Working]            Get:4 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libpam0g i386 1.1.8-3.2ubuntu2.3 [57.8 kB]
+7% [4 libpam0g 0 B/57.8 kB 0%]                              8% [Working]            Get:5 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libpam-modules-bin i386 1.1.8-3.2ubuntu2.3 [38.3 kB]
+8% [5 libpam-modules-bin 0 B/38.3 kB 0%]                                        9% [Working]            Get:6 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libpam-modules i386 1.1.8-3.2ubuntu2.3 [256 kB]
+9% [6 libpam-modules 0 B/256 kB 0%]                                   10% [Working]             Get:7 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libpam-runtime all 1.1.8-3.2ubuntu2.3 [37.8 kB]
+10% [7 libpam-runtime 0 B/37.8 kB 0%]                                     11% [Working]             Get:8 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libuuid1 i386 2.27.1-6ubuntu3.10 [15.6 kB]
+11% [8 libuuid1 0 B/15.6 kB 0%]                               11% [Working]             Get:9 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libblkid1 i386 2.27.1-6ubuntu3.10 [120 kB]
+11% [9 libblkid1 0 B/120 kB 0%]                               13% [Working]             Get:10 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libprocps4 i386 2:3.3.10-4ubuntu2.5 [34.0 kB]
+13% [10 libprocps4 0 B/34.0 kB 0%]                                  13% [Working]             Get:11 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 procps i386 2:3.3.10-4ubuntu2.5 [221 kB]
+13% [11 procps 0 B/221 kB 0%]                             15% [Working]             Get:12 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libsystemd0 i386 229-4ubuntu21.31 [223 kB]
+15% [12 libsystemd0 0 B/223 kB 0%]                                  16% [Working]             Get:13 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libpam-systemd i386 229-4ubuntu21.31 [123 kB]
+16% [13 libpam-systemd 0 B/123 kB 0%]                                     17% [Working]             Get:14 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 systemd i386 229-4ubuntu21.31 [3,630 kB]
+17% [14 systemd 0 B/3,630 kB 0%]                                39% [Working]             Get:15 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 udev i386 229-4ubuntu21.31 [1,000 kB]
+39% [15 udev 0 B/1,000 kB 0%]                             45% [Working]             Get:16 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libudev1 i386 229-4ubuntu21.31 [58.1 kB]
+45% [16 libudev1 0 B/58.1 kB 0%]                                45% [Working]             Get:17 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 initramfs-tools all 0.122ubuntu8.17 [8,932 B]
+45% [17 initramfs-tools 0 B/8,932 B 0%]                                       46% [Working]             Get:18 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 initramfs-tools-core all 0.122ubuntu8.17 [45.0 kB]
+46% [18 initramfs-tools-core 0 B/45.0 kB 0%]                                            47% [Working]             Get:19 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 initramfs-tools-bin i386 0.122ubuntu8.17 [9,768 B]
+47% [19 initramfs-tools-bin 0 B/9,768 B 0%]                                           47% [Working]             Get:20 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 systemd-sysv i386 229-4ubuntu21.31 [12.3 kB]
+47% [20 systemd-sysv 0 B/12.3 kB 0%]                                    47% [Working]             Get:21 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libmount1 i386 2.27.1-6ubuntu3.10 [125 kB]
+47% [21 libmount1 0 B/125 kB 0%]                                49% [Working]             Get:22 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libseccomp2 i386 2.5.1-1ubuntu1~16.04.1 [45.0 kB]
+49% [22 libseccomp2 0 B/45.0 kB 0%]                                   49% [Working]             Get:23 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 uuid-runtime i386 2.27.1-6ubuntu3.10 [26.3 kB]
+49% [23 uuid-runtime 0 B/26.3 kB 0%]                                    50% [Working]             Get:24 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 grub-pc i386 2.02~beta2-36ubuntu3.32 [197 kB]
+50% [24 grub-pc 0 B/197 kB 0%]                              51% [Working]             Get:25 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 grub2-common i386 2.02~beta2-36ubuntu3.32 [547 kB]
+51% [25 grub2-common 0 B/547 kB 0%]                                   55% [Working]             Get:26 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 grub-pc-bin i386 2.02~beta2-36ubuntu3.32 [918 kB]
+55% [26 grub-pc-bin 0 B/918 kB 0%]                                  60% [Working]             Get:27 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 grub-common i386 2.02~beta2-36ubuntu3.32 [1,744 kB]
+60% [27 grub-common 0 B/1,744 kB 0%]                                    71% [Working]             Get:28 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libfdisk1 i386 2.27.1-6ubuntu3.10 [154 kB]
+71% [28 libfdisk1 0 B/154 kB 0%]                                72% [Working]             Get:29 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libsmartcols1 i386 2.27.1-6ubuntu3.10 [67.6 kB]
+72% [29 libsmartcols1 0 B/67.6 kB 0%]                                     73% [Working]             Get:30 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 ubuntu-keyring all 2012.05.19.1 [18.4 kB]
+73% [30 ubuntu-keyring 0 B/18.4 kB 0%]                                      73% [Working]             Get:31 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libapt-inst2.0 i386 1.2.35 [56.6 kB]
+73% [31 libapt-inst2.0 0 B/56.6 kB 0%]                                      74% [Working]             Get:32 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libgnutls-openssl27 i386 3.4.10-4ubuntu1.9 [22.8 kB]
+74% [32 libgnutls-openssl27 0 B/22.8 kB 0%]                                           75% [Working]             Get:33 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libgnutls30 i386 3.4.10-4ubuntu1.9 [569 kB]
+75% [33 libgnutls30 0 B/569 kB 0%]                                  78% [Working]             Get:34 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 ubuntu-minimal i386 1.361.6 [2,872 B]
+78% [34 ubuntu-minimal 0 B/2,872 B 0%]                                      79% [Working]             Get:35 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 apt-transport-https i386 1.2.35 [28.6 kB]
+79% [35 apt-transport-https 0 B/28.6 kB 0%]                                           79% [Working]             Get:36 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 dmidecode i386 3.0-2ubuntu0.2 [46.5 kB]
+79% [36 dmidecode 0 B/46.5 kB 0%]                                 80% [Working]             Get:37 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 openssh-sftp-server i386 1:7.2p2-4ubuntu2.10 [44.0 kB]
+80% [37 openssh-sftp-server 0 B/44.0 kB 0%]                                           80% [Working]             Get:38 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 openssh-server i386 1:7.2p2-4ubuntu2.10 [377 kB]
+80% [38 openssh-server 0 B/377 kB 0%]                                     83% [Working]             Get:39 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 openssh-client i386 1:7.2p2-4ubuntu2.10 [653 kB]
+83% [39 openssh-client 0 B/653 kB 0%]                                     87% [Working]             Get:40 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 python-apt-common all 1.1.0~beta1ubuntu0.16.04.12 [16.7 kB]
+87% [40 python-apt-common 0 B/16.7 kB 0%]                                         88% [Working]             Get:41 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 python3-apt i386 1.1.0~beta1ubuntu0.16.04.12 [147 kB]
+88% [41 python3-apt 0 B/147 kB 0%]                                  89% [Working]             Get:42 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 ubuntu-release-upgrader-core all 1:16.04.32 [30.6 kB]
+89% [42 ubuntu-release-upgrader-core 0 B/30.6 kB 0%]                                                    89% [Working]             Get:43 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 python3-distupgrade all 1:16.04.32 [104 kB]
+89% [43 python3-distupgrade 0 B/104 kB 0%]                                          90% [Working]             Get:44 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 python3-update-manager all 1:16.04.17 [33.5 kB]
+90% [44 python3-update-manager 0 B/33.5 kB 0%]                                              91% [Working]             Get:45 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 update-manager-core all 1:16.04.17 [5,488 B]
+91% [45 update-manager-core 0 B/5,488 B 0%]                                           91% [Working]             Get:46 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 ubuntu-standard i386 1.361.6 [2,926 B]
+91% [46 ubuntu-standard 0 B/2,926 B 0%]                                       92% [Working]             Get:47 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 dpkg-dev all 1.18.4ubuntu1.7 [584 kB]
+92% [47 dpkg-dev 0 B/584 kB 0%]                               95% [Working]             Get:48 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 libdpkg-perl all 1.18.4ubuntu1.7 [195 kB]
+95% [48 libdpkg-perl 0 B/195 kB 0%]                                   97% [Working]             Get:49 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 sosreport i386 3.9.1-1ubuntu0.16.04.2 [170 kB]
+97% [49 sosreport 0 B/170 kB 0%]                                98% [Working]             Get:50 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 unattended-upgrades all 1.1ubuntu1.18.04.7~16.04.7 [42.4 kB]
+98% [50 unattended-upgrades 0 B/42.4 kB 0%]                                           99% [Working]             Get:51 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 cloud-guest-utils all 0.27-0ubuntu25.2 [15.1 kB]
+99% [51 cloud-guest-utils 0 B/15.1 kB 0%]                                         99% [Working]             Get:52 http://es.archive.ubuntu.com/ubuntu xenial-updates/main i386 grub-legacy-ec2 all 21.1-19-gbad84ad4-0ubuntu1~16.04.2 [36.6 kB]
+99% [52 grub-legacy-ec2 0 B/36.6 kB 0%]                                       100% [Working]              Fetched 14.0 MB in 2s (5,973 kB/s)
+Extracting templates from packages: 57%Extracting templates from packages: 100%
+Preconfiguring packages ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../bsdutils_1%3a2.27.1-6ubuntu3.10_i386.deb ...
+Unpacking bsdutils (1:2.27.1-6ubuntu3.10) over (1:2.27.1-6ubuntu3.8) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up bsdutils (1:2.27.1-6ubuntu3.10) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../util-linux_2.27.1-6ubuntu3.10_i386.deb ...
+Unpacking util-linux (2.27.1-6ubuntu3.10) over (2.27.1-6ubuntu3.8) ...
+Processing triggers for mime-support (3.59ubuntu1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for ureadahead (0.100.0-19.1) ...
+Setting up util-linux (2.27.1-6ubuntu3.10) ...
+Processing triggers for systemd (229-4ubuntu21.27) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../mount_2.27.1-6ubuntu3.10_i386.deb ...
+Unpacking mount (2.27.1-6ubuntu3.10) over (2.27.1-6ubuntu3.8) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up mount (2.27.1-6ubuntu3.10) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libpam0g_1.1.8-3.2ubuntu2.3_i386.deb ...
+Unpacking libpam0g:i386 (1.1.8-3.2ubuntu2.3) over (1.1.8-3.2ubuntu2.1) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Setting up libpam0g:i386 (1.1.8-3.2ubuntu2.3) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libpam-modules-bin_1.1.8-3.2ubuntu2.3_i386.deb ...
+Unpacking libpam-modules-bin (1.1.8-3.2ubuntu2.3) over (1.1.8-3.2ubuntu2.1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up libpam-modules-bin (1.1.8-3.2ubuntu2.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libpam-modules_1.1.8-3.2ubuntu2.3_i386.deb ...
+Unpacking libpam-modules:i386 (1.1.8-3.2ubuntu2.3) over (1.1.8-3.2ubuntu2.1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up libpam-modules:i386 (1.1.8-3.2ubuntu2.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libpam-runtime_1.1.8-3.2ubuntu2.3_all.deb ...
+Unpacking libpam-runtime (1.1.8-3.2ubuntu2.3) over (1.1.8-3.2ubuntu2.1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up libpam-runtime (1.1.8-3.2ubuntu2.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libuuid1_2.27.1-6ubuntu3.10_i386.deb ...
+Unpacking libuuid1:i386 (2.27.1-6ubuntu3.10) over (2.27.1-6ubuntu3.8) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Setting up libuuid1:i386 (2.27.1-6ubuntu3.10) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libblkid1_2.27.1-6ubuntu3.10_i386.deb ...
+Unpacking libblkid1:i386 (2.27.1-6ubuntu3.10) over (2.27.1-6ubuntu3.8) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Setting up libblkid1:i386 (2.27.1-6ubuntu3.10) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libprocps4_2%3a3.3.10-4ubuntu2.5_i386.deb ...
+Unpacking libprocps4:i386 (2:3.3.10-4ubuntu2.5) over (2:3.3.10-4ubuntu2.4) ...
+Preparing to unpack .../procps_2%3a3.3.10-4ubuntu2.5_i386.deb ...
+Unpacking procps (2:3.3.10-4ubuntu2.5) over (2:3.3.10-4ubuntu2.4) ...
+Preparing to unpack .../libsystemd0_229-4ubuntu21.31_i386.deb ...
+Unpacking libsystemd0:i386 (229-4ubuntu21.31) over (229-4ubuntu21.27) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Processing triggers for ureadahead (0.100.0-19.1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up libsystemd0:i386 (229-4ubuntu21.31) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libpam-systemd_229-4ubuntu21.31_i386.deb ...
+Unpacking libpam-systemd:i386 (229-4ubuntu21.31) over (229-4ubuntu21.27) ...
+Preparing to unpack .../systemd_229-4ubuntu21.31_i386.deb ...
+Unpacking systemd (229-4ubuntu21.31) over (229-4ubuntu21.27) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for dbus (1.10.6-1ubuntu3.6) ...
+Processing triggers for ureadahead (0.100.0-19.1) ...
+Setting up systemd (229-4ubuntu21.31) ...
+addgroup: The group `systemd-journal' already exists as a system group. Exiting.
+[/usr/lib/tmpfiles.d/var.conf:14] Duplicate line for path "/var/log", ignoring.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../udev_229-4ubuntu21.31_i386.deb ...
+Unpacking udev (229-4ubuntu21.31) over (229-4ubuntu21.27) ...
+Preparing to unpack .../libudev1_229-4ubuntu21.31_i386.deb ...
+Unpacking libudev1:i386 (229-4ubuntu21.31) over (229-4ubuntu21.27) ...
+Processing triggers for ureadahead (0.100.0-19.1) ...
+Processing triggers for systemd (229-4ubuntu21.31) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Setting up libudev1:i386 (229-4ubuntu21.31) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../initramfs-tools_0.122ubuntu8.17_all.deb ...
+Unpacking initramfs-tools (0.122ubuntu8.17) over (0.122ubuntu8.14) ...
+Preparing to unpack .../initramfs-tools-core_0.122ubuntu8.17_all.deb ...
+Unpacking initramfs-tools-core (0.122ubuntu8.17) over (0.122ubuntu8.14) ...
+Preparing to unpack .../initramfs-tools-bin_0.122ubuntu8.17_i386.deb ...
+Unpacking initramfs-tools-bin (0.122ubuntu8.17) over (0.122ubuntu8.14) ...
+Preparing to unpack .../systemd-sysv_229-4ubuntu21.31_i386.deb ...
+Unpacking systemd-sysv (229-4ubuntu21.31) over (229-4ubuntu21.27) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up systemd-sysv (229-4ubuntu21.31) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libmount1_2.27.1-6ubuntu3.10_i386.deb ...
+Unpacking libmount1:i386 (2.27.1-6ubuntu3.10) over (2.27.1-6ubuntu3.8) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Setting up libmount1:i386 (2.27.1-6ubuntu3.10) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libseccomp2_2.5.1-1ubuntu1~16.04.1_i386.deb ...
+Unpacking libseccomp2:i386 (2.5.1-1ubuntu1~16.04.1) over (2.4.3-1ubuntu3.16.04.3) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Setting up libseccomp2:i386 (2.5.1-1ubuntu1~16.04.1) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../uuid-runtime_2.27.1-6ubuntu3.10_i386.deb ...
+Unpacking uuid-runtime (2.27.1-6ubuntu3.10) over (2.27.1-6ubuntu3.8) ...
+Preparing to unpack .../grub-pc_2.02~beta2-36ubuntu3.32_i386.deb ...
+Unpacking grub-pc (2.02~beta2-36ubuntu3.32) over (2.02~beta2-36ubuntu3.27) ...
+Preparing to unpack .../grub2-common_2.02~beta2-36ubuntu3.32_i386.deb ...
+Unpacking grub2-common (2.02~beta2-36ubuntu3.32) over (2.02~beta2-36ubuntu3.27) ...
+Preparing to unpack .../grub-pc-bin_2.02~beta2-36ubuntu3.32_i386.deb ...
+Unpacking grub-pc-bin (2.02~beta2-36ubuntu3.32) over (2.02~beta2-36ubuntu3.27) ...
+Preparing to unpack .../grub-common_2.02~beta2-36ubuntu3.32_i386.deb ...
+Unpacking grub-common (2.02~beta2-36ubuntu3.32) over (2.02~beta2-36ubuntu3.27) ...
+Preparing to unpack .../libfdisk1_2.27.1-6ubuntu3.10_i386.deb ...
+Unpacking libfdisk1:i386 (2.27.1-6ubuntu3.10) over (2.27.1-6ubuntu3.8) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for systemd (229-4ubuntu21.31) ...
+Processing triggers for ureadahead (0.100.0-19.1) ...
+Processing triggers for install-info (6.1.0.dfsg.1-5) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Setting up libfdisk1:i386 (2.27.1-6ubuntu3.10) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libsmartcols1_2.27.1-6ubuntu3.10_i386.deb ...
+Unpacking libsmartcols1:i386 (2.27.1-6ubuntu3.10) over (2.27.1-6ubuntu3.8) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Setting up libsmartcols1:i386 (2.27.1-6ubuntu3.10) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../ubuntu-keyring_2012.05.19.1_all.deb ...
+Unpacking ubuntu-keyring (2012.05.19.1) over (2012.05.19) ...
+Setting up ubuntu-keyring (2012.05.19.1) ...
+gpg: key 437D05B5: "Ubuntu Archive Automatic Signing Key <ftpmaster@ubuntu.com>" not changed
+gpg: key FBB75451: "Ubuntu CD Image Automatic Signing Key <cdimage@ubuntu.com>" not changed
+gpg: key C0B21F32: "Ubuntu Archive Automatic Signing Key (2012) <ftpmaster@ubuntu.com>" not changed
+gpg: key EFE21092: "Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>" not changed
+gpg: key 991BC93C: public key "Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>" imported
+gpg: Total number processed: 5
+gpg:               imported: 1  (RSA: 1)
+gpg:              unchanged: 4
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101337 files and directories currently installed.)
+Preparing to unpack .../libapt-inst2.0_1.2.35_i386.deb ...
+Unpacking libapt-inst2.0:i386 (1.2.35) over (1.2.32ubuntu0.2) ...
+Preparing to unpack .../libgnutls-openssl27_3.4.10-4ubuntu1.9_i386.deb ...
+Unpacking libgnutls-openssl27:i386 (3.4.10-4ubuntu1.9) over (3.4.10-4ubuntu1.7) ...
+Preparing to unpack .../libgnutls30_3.4.10-4ubuntu1.9_i386.deb ...
+Unpacking libgnutls30:i386 (3.4.10-4ubuntu1.9) over (3.4.10-4ubuntu1.7) ...
+Preparing to unpack .../ubuntu-minimal_1.361.6_i386.deb ...
+Unpacking ubuntu-minimal (1.361.6) over (1.361.4) ...
+Preparing to unpack .../apt-transport-https_1.2.35_i386.deb ...
+Unpacking apt-transport-https (1.2.35) over (1.2.32ubuntu0.2) ...
+Preparing to unpack .../dmidecode_3.0-2ubuntu0.2_i386.deb ...
+Unpacking dmidecode (3.0-2ubuntu0.2) over (3.0-2ubuntu0.1) ...
+Preparing to unpack .../openssh-sftp-server_1%3a7.2p2-4ubuntu2.10_i386.deb ...
+Unpacking openssh-sftp-server (1:7.2p2-4ubuntu2.10) over (1:7.2p2-4ubuntu2.8) ...
+Preparing to unpack .../openssh-server_1%3a7.2p2-4ubuntu2.10_i386.deb ...
+Unpacking openssh-server (1:7.2p2-4ubuntu2.10) over (1:7.2p2-4ubuntu2.8) ...
+Preparing to unpack .../openssh-client_1%3a7.2p2-4ubuntu2.10_i386.deb ...
+Unpacking openssh-client (1:7.2p2-4ubuntu2.10) over (1:7.2p2-4ubuntu2.8) ...
+Preparing to unpack .../python-apt-common_1.1.0~beta1ubuntu0.16.04.12_all.deb ...
+Unpacking python-apt-common (1.1.0~beta1ubuntu0.16.04.12) over (1.1.0~beta1ubuntu0.16.04.11) ...
+Preparing to unpack .../python3-apt_1.1.0~beta1ubuntu0.16.04.12_i386.deb ...
+Unpacking python3-apt (1.1.0~beta1ubuntu0.16.04.12) over (1.1.0~beta1ubuntu0.16.04.11) ...
+Preparing to unpack .../ubuntu-release-upgrader-core_1%3a16.04.32_all.deb ...
+Unpacking ubuntu-release-upgrader-core (1:16.04.32) over (1:16.04.26) ...
+Preparing to unpack .../python3-distupgrade_1%3a16.04.32_all.deb ...
+Unpacking python3-distupgrade (1:16.04.32) over (1:16.04.26) ...
+Preparing to unpack .../python3-update-manager_1%3a16.04.17_all.deb ...
+Unpacking python3-update-manager (1:16.04.17) over (1:16.04.15) ...
+Preparing to unpack .../update-manager-core_1%3a16.04.17_all.deb ...
+Unpacking update-manager-core (1:16.04.17) over (1:16.04.15) ...
+Preparing to unpack .../ubuntu-standard_1.361.6_i386.deb ...
+Unpacking ubuntu-standard (1.361.6) over (1.361.4) ...
+Preparing to unpack .../dpkg-dev_1.18.4ubuntu1.7_all.deb ...
+Unpacking dpkg-dev (1.18.4ubuntu1.7) over (1.18.4ubuntu1.6) ...
+Preparing to unpack .../libdpkg-perl_1.18.4ubuntu1.7_all.deb ...
+Unpacking libdpkg-perl (1.18.4ubuntu1.7) over (1.18.4ubuntu1.6) ...
+Preparing to unpack .../sosreport_3.9.1-1ubuntu0.16.04.2_i386.deb ...
+Unpacking sosreport (3.9.1-1ubuntu0.16.04.2) over (3.6-1ubuntu0.16.04.2) ...
+Preparing to unpack .../unattended-upgrades_1.1ubuntu1.18.04.7~16.04.7_all.deb ...
+Unpacking unattended-upgrades (1.1ubuntu1.18.04.7~16.04.7) over (1.1ubuntu1.18.04.7~16.04.3) ...
+Preparing to unpack .../cloud-guest-utils_0.27-0ubuntu25.2_all.deb ...
+Unpacking cloud-guest-utils (0.27-0ubuntu25.2) over (0.27-0ubuntu25.1) ...
+Preparing to unpack .../grub-legacy-ec2_21.1-19-gbad84ad4-0ubuntu1~16.04.2_all.deb ...
+Leaving 'diversion of /usr/sbin/grub-set-default to /usr/sbin/grub-set-default.real by grub-legacy-ec2'
+Unpacking grub-legacy-ec2 (21.1-19-gbad84ad4-0ubuntu1~16.04.2) over (19.1-1-gbaa47854-0ubuntu1~16.04.1) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for systemd (229-4ubuntu21.31) ...
+Processing triggers for ureadahead (0.100.0-19.1) ...
+Processing triggers for ufw (0.35-0ubuntu2) ...
+Setting up libprocps4:i386 (2:3.3.10-4ubuntu2.5) ...
+Setting up procps (2:3.3.10-4ubuntu2.5) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+Setting up libpam-systemd:i386 (229-4ubuntu21.31) ...
+Setting up udev (229-4ubuntu21.31) ...
+addgroup: The group `input' already exists as a system group. Exiting.
+update-initramfs: deferring update (trigger activated)
+Setting up initramfs-tools-bin (0.122ubuntu8.17) ...
+Setting up initramfs-tools-core (0.122ubuntu8.17) ...
+Setting up initramfs-tools (0.122ubuntu8.17) ...
+update-initramfs: deferring update (trigger activated)
+Setting up uuid-runtime (2.27.1-6ubuntu3.10) ...
+Setting up grub-common (2.02~beta2-36ubuntu3.32) ...
+Installing new version of config file /etc/grub.d/10_linux ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+Setting up grub2-common (2.02~beta2-36ubuntu3.32) ...
+Setting up grub-pc-bin (2.02~beta2-36ubuntu3.32) ...
+Setting up grub-pc (2.02~beta2-36ubuntu3.32) ...
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-4.4.0-210-generic
+Found initrd image: /boot/initrd.img-4.4.0-210-generic
+Found linux image: /boot/vmlinuz-4.4.0-142-generic
+Found initrd image: /boot/initrd.img-4.4.0-142-generic
+done
+Setting up libapt-inst2.0:i386 (1.2.35) ...
+Setting up libgnutls30:i386 (3.4.10-4ubuntu1.9) ...
+Setting up libgnutls-openssl27:i386 (3.4.10-4ubuntu1.9) ...
+Setting up ubuntu-minimal (1.361.6) ...
+Setting up apt-transport-https (1.2.35) ...
+Setting up dmidecode (3.0-2ubuntu0.2) ...
+Setting up openssh-client (1:7.2p2-4ubuntu2.10) ...
+Setting up openssh-sftp-server (1:7.2p2-4ubuntu2.10) ...
+Setting up openssh-server (1:7.2p2-4ubuntu2.10) ...
+Setting up python-apt-common (1.1.0~beta1ubuntu0.16.04.12) ...
+Setting up python3-apt (1.1.0~beta1ubuntu0.16.04.12) ...
+Setting up ubuntu-standard (1.361.6) ...
+Setting up libdpkg-perl (1.18.4ubuntu1.7) ...
+Setting up dpkg-dev (1.18.4ubuntu1.7) ...
+Setting up sosreport (3.9.1-1ubuntu0.16.04.2) ...
+Installing new version of config file /etc/sos.conf ...
+Setting up unattended-upgrades (1.1ubuntu1.18.04.7~16.04.7) ...
+Replacing config file /etc/apt/apt.conf.d/50unattended-upgrades with new version
+Setting up cloud-guest-utils (0.27-0ubuntu25.2) ...
+Setting up grub-legacy-ec2 (21.1-19-gbad84ad4-0ubuntu1~16.04.2) ...
+Searching for GRUB installation directory ... found: /boot/grub
+Searching for default file ... found: /boot/grub/default
+Testing for an existing GRUB menu.lst file ... found: /boot/grub/menu.lst
+Searching for splash image ... none found, skipping ...
+Found kernel: /vmlinuz-4.4.0-210-generic
+Found kernel: /vmlinuz-4.4.0-142-generic
+Found kernel: /vmlinuz-4.4.0-210-generic
+Found kernel: /vmlinuz-4.4.0-142-generic
+Updating /boot/grub/menu.lst ... done
+
+Setting up python3-distupgrade (1:16.04.32) ...
+Setting up python3-update-manager (1:16.04.17) ...
+Setting up ubuntu-release-upgrader-core (1:16.04.32) ...
+Installing new version of config file /etc/update-manager/meta-release ...
+Setting up update-manager-core (1:16.04.17) ...
+Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+Processing triggers for initramfs-tools (0.122ubuntu8.17) ...
+update-initramfs: Generating /boot/initrd.img-4.4.0-210-generic
+W: mdadm: /etc/mdadm/mdadm.conf defines no arrays.
+student@2ac:~$ mkdir ~~/dir
+student@2ac:~$ cedd ~/dir
+student@2ac:~/dir$ cp ../1-1texto.txt ./cop1-1copia.txt
+student@2ac:~/dir$ mv 1.1-1copia1.txt ../1-1copia2.txt
+mv: cannot stat '1-1copia1.txt': No such file or directory
+student@2ac:~/dir$ mv 1-1copia1.txt ../1-1copia2.txt
+student@2ac:~/dir$ cd ..
+student@2ac:~$ rm 1-1copiaa2.txt
+rm: remove write-protected regular file '1-1copia2.txt'? y
+student@2ac:~$ rm 1-1copia2.txt
+rm: cannot remove '1-1copia2.txt': No such file or directory
+student@2ac:~$ ccd ~/dir
+student@2ac:~/dir$ rm copi1-1copia2.txt
+rm: cannot remove '1-1copia2.txt': No such file or directory
+student@2ac:~/dir$ rm 1-1copia2.txtcd ~/dir
+student@2ac:~/dir$ cd ~/dirrm 1-1copia2.txtcd ~/dirrm 1-1copia2.txtcd ..
+student@2ac:~$ cd ..~/dirrm 1-1copia2.txt
+rm: cannot remove '1-1copia2.txt': No such file or directory
+student@2ac:~$ rm dirdir dir
+student@2ac:~$ mal n sls
+LS(1)                            User Commands                           LS(1)
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List  information  about  the FILEs (the current directory by default).
+       Sort entries alphabetically if none of -cftuvSUX nor --sort  is  speci
+       fied.
+
+       Mandatory  arguments  to  long  options are mandatory for short options
+       too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+
+       --author
+ Manual page ls(1) line 1 (press h for help or q to quit)student@2ac:~$ man 3 printf
+PRINTF(3)                  Linux Programmer's Manual                 PRINTF(3)
+
+NAME
+       printf,   fprintf,   dprintf,  sprintf,  snprintf,  vprintf,  vfprintf,
+       vdprintf, vsprintf, vsnprintf - formatted output conversion
+
+SYNOPSIS
+       #include <stdio.h>
+
+       int printf(const char *format, ...);
+       int fprintf(FILE *stream, const char *format, ...);
+       int dprintf(int fd, const char *format, ...);
+       int sprintf(char *str, const char *format, ...);
+       int snprintf(char *str, size_t size, const char *format, ...);
+
+       #include <stdarg.h>
+
+       int vprintf(const char *format, va_list ap);
+       int vfprintf(FILE *stream, const char *format, va_list ap);
+       int vdprintf(int fd, const char *format, va_list ap);
+       int vsprintf(char *str, const char *format, va_list ap);
+       int vsnprintf(char *str, size_t size, const char *format, va_list ap);
+
+ Manual page printf(3) line 1 (press h for help or q to quit)student@2ac:~$ sudo poweroffreboot
+Failed to set wall message, ignoring: Interactive authentication required.
+Failed to reboot system via logind: Interactive authentication required.
+Failed to start reboot.target: Interactive authentication required.
+See system logs and 'systemctl status reboot.target' for details.
+Failed to open /dev/initctl: Permission denied
+Failed to talk to init daemon.
+student@2ac:~$ sudo reboot

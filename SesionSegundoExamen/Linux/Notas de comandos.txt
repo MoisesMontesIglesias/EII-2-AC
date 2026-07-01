@@ -1,0 +1,334 @@
+SESION 3-3
+1. OBTENCION DE PARÁMETROS DE CACHÉ
+sudo apt install nasm 	--> Instala nasm, el cual emplearemos para eliminar los errores q aparecen al utilizar -->
+
+make <nombreArchivo>	--> compila la version de 32 bits
+
+./bandwidth32 | more	--> Indica los diferentes niveles de caché, incluyendo: tamaño, estrategia de correspondencia,
+			tamaño del bloque, si es unificada o es de código o datos, y el nº de cachés de dicho tipo
+
+INTERRUMPIR EJECUCIÓN DE PROGRAMA --> Ctrl + C
+
+sudo nice -n -2 ./bandwidth32 --fastest --> El programa nice se utiliza para ejecutar el benchmark a mayor prioridad
+					para que no interfieran los servicios del sistema. Este genera una gráfica
+					en el fichero <nombreArchivo>. Usa WinSCP para pasarlo a tu pc y ver la gráfica
+
+El fichero creado anteriormente, consta de: en el eje Y se muestra el ancho de banda y en el eje X se muestra el 
+tamaño de los datos con los que se trabaja. Deberían aparecer escalones que encajen aproximadamente con el tamaño 
+de las cachés del sistema.
+
+POSIBLE EJERCICIO: 
+Indica el ancho de banda para el experimento de lectura secuencial de 128 bits para todos los niveles de caché y la 
+memoria principal.
+- Para hallar esto, visualizaremos los picos o alturas que tiene el dato a mirar en la gráfica, cuyo ancho de banda 
+será el pico en cada altura/piso/nivel.
+
+¿Cuántas veces es más rápida la memoria caché L1 que la memoria principal?
+- Pico de caché L2 / Pico de caché L1 (en el ejemplo me salio cerca de un 2,17)
+
+¿Cuántas veces es más rápida la memoria caché L2 que la memoria principal? 
+- Pico de MP / Pico de caché L2
+--------------------------------------------------------------------------------------------------------------------
+2. INFLUENCIA DE LA LOCALIDAD EN EL RENDIMIENTO
+nano <nombreArchivo>.c	  			--> Crear un archivo txt vacío
+gcc <nombreArchivo>.c -o <nombreArchivo>  	--> Compilar y enlazar el programa
+time ./3-3loc1 		  			--> Ejecutar el programa y mostrar el tiempo de ejecución 
+RECOMENDABLE REALIZAR LA MEDICIÓN 3 VECES Y HALLAR LA MEDIA PARA OBTENER UN RESULTADO MAS FIABLE (Coger tiempo Real Medio)
+
+cp ./<nombreArchivo> ./<nombreArchivoNuevo> 	--> Permite copiar lo que hay contenido en el archivo en otro nuevo
+//////////RECORDAR IMPORTANTE además incluir la directiva #include <stdio.h> para poder emplear la función printf.
+nano <nombreArchivo>.c	  			--> Crear un archivo txt vacío
+gcc <nombreArchivo>.c -o <nombreArchivo>  	--> Compilar y enlazar el programa
+./<nombreArchivo> > <nombreTxt.txt		--> Crea un archivo result2.txt con una secuencia de direcciones de acceso
+						Mirando la última direccion de la fila vemos el final de la fila
+						buscando la cadena Begin row dentro del editor
+
+¿Qué relación hay entre ambas direcciones?
+- Son consecutivas
+
+¿Qué ocurre con las direcciones de acceso a todos los elementos de la matriz?
+- Que se realizan de manera secuencial, es decir, el acceso es secuencial
+
+Para estimar la localidad, una forma de hacerlo es obtener la tasa de aciertos de caché para una caché que se toma como 
+referencia. A mayor tasa de aciertos, mayor localidad
+
+Si ignoramos el efecto de la ejecución del S.O. y otras tareas que están en memoria, como el código de la tarea.
+¿Cuál sería la tasa de aciertos de cache L1?
+- (63/64) * 100 = Asumiendo bloques de 64 palabras, como cada bloque tiene 64 palabras la primera genera fallo de cache y 
+el resto (63) generan acierto. Total, el acierto es de 63/64 (se multiplica por 100 para ponerlo en porcentaje)
+
+Compara el tiempo medido con el del programa 3-3loc1. ¿Qué ha ocurrido? ¿Qué explicación encuentras? (3-3loc3 > 3-3loc1)
+El resultado observado es el efecto de la caché. Ahora el programa es mucho más lento ya que genera 
+muchos más fallos de caché.
+
+time ./3-3loc4 > result4.txt			--> Devuelve el tiempo que tarda y crea un archivo con datos
+						sobre el programa ejecutado
+
+¿Qué ocurre con las direcciones de acceso a todos los elementos de la matriz del 3-3loc4?
+- No son consecutivas
+
+¿Cuál sería la tasa de aciertos de caché L1 del programa 3-3loc4?
+- 0
+
+Cada vez que se accede a una posición de la matriz se carga en la cache un bloque de 64 palabras. El siguiente 
+acceso está 8192 posiciones más lejos con lo que genera otro fallo. Conclusión: no hay aciertos.
+------------------------------------------------------------------------------------------------------------------------
+3. SIMULACIÓN DE LOS ACCESOS A MEMORIA CON VALGRING
+valgrind --tool=cachegrind ./3-3loc1		--> Simula la traza de accesos a memoria.
+
+I: instrucción.
+D: datos (rd: lectura, wr: escritura).
+I1: caché L1 de instrucciones.
+D1: caché L1 de datos.
+LL: resto de cachés de la jerarquía (L2, L3).
+LLi: accesos a instrucción en el resto de cachés de la jerarquía.
+LLd: accesos a datos en el resto de cachés de la jerarquía.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+SESION 3.4 ORGANIZACIÓN DE LA MEMORIA DE LAS TAREAS EN GNU/LINUX
+/proc/<pid>/maps		--> <pid> es un patrón de sustitución que hace referencia al identificador de la tarea(proceso)
+				Aquí dentro se encuentra la organización del espacio de direcciones virtuales accesible
+				a una tarea
+
+more /proc/<pid>/maps		--> sustituye <pid> por el valor obtenido con la instrucción anterior
+INFORMACIÓN SOBRE LO QUE MUESTRA LA LINEA ANTERIOR:
+En la primera columna aparecen los diferentes rangos de memoria separados por un guion. La primera dirección del rango es la 
+dirección virtual de comienzo, mientras que la segunda es la dirección final (más uno). todas estas direcciones se encuentran 
+en la zona de memoria reservada para la tarea. el tamaño de cada una de las áreas mostradas es múltiplo de 4 KiB, el tamaño 
+de la página. 
+En la segunda columna aparecen los permisos de lectura (r), escritura (w) y ejecución (x) asociados al área de memoria. 
+También se indica si el área de memoria es privada (p) o compartida por varias tareas (s). 
+en la columna más a la derecha aparece el nombre del archivo asociado a cada área de memoria si hay alguno asociado, 
+o bien un espacio en blanco para áreas anónimas gestionadas por el sistema
+
+MAS INFO EN EL DOCUMENTO
+
+CÓDIGO ESTÁTICO: código de la tarea presente en su archivo ejecutable con atributos r-xp
+DATOS ESTÁTICOS: las constantes y variables globales de la tarea, también definidas en el archivo ejecutable con 
+atributos r--p para constantes y rw-p para variables.
+PILA(STACK): Almacena las variables locales de la tarea así como las direcciones de retorno de las funciones, la 
+ubicación es aleatoria y la fija el S.O durante la carga de la tarea. Se corresponde con el rango de memoria 
+marcado como [stack]
+MONTÓN O MONTÍCULO(heap): Reservada para memoria solicitada dinámicamente. Se emplea la función malloc().
+Se corresponde con el rango de memoria marcado como [heap]
+BIBLIOTECAS DE ENLACE DINÁMICO: El ejecutable de la tarea contiene código que hace de interfaz con las bibliotecas 
+dinámicas. El enlace con estas bibliotecas se hace en tiempo de carga o en tiempo de ejecución
+Las bibliotecas dinámicas en Linux tienen típicamente la extensión .so
+VDSO (Virtual Dynamic Shared Object): Se trata de una pequeña zona de memoria que contiene una librería dinámica, 
+la cual permite implementar de forma muy eficiente llamadas a servicios que no requieren privilegios para ser 
+ejecutados.
+VVAR (Virtual Dynamic Shared Object): Zona de memoria de sólo lectura que contiene datos a los que acceden 
+las rutinas almacenadas en el área VDSO.
+LIBRERIA ESTÁTICA: Si se desea enlazar con la versión estática de la librería (libc.a) debe indicarse de forma 
+explícita añadiendo la opción -static
+
+¿Qué tamaño total en bytes ocupa la biblioteca estándar de C en su versión dinámica? 
+- Restas la primera línea con extensión .so (el primer rango de direcciones) y la última línea que tenga extensión .so
+CONSECUTIVA
+
+ls -l 3-4maps-* 			--> Compara los tamaños de los archivos ejecutables (3-4maps-1 y 3-4maps-2)
+
+ls -l --block-size=K 3-4maps*   	--> Con este comando obtenemos el valor directamente en KiB y restamos los
+					valores a ojo sin dificultad, sino habría que obtener la diferencia en bytes, 
+					diviendolo por 1024 después, para obtener KiB
+
+sudo cat /proc/iomem			--> Si en lugar de conocer la organización del espacio de direcciones 
+					virtuales de una tarea se desease conocer la organización del espacio 
+					de direcciones físicas del sistema
+
+--------------------------------------------------------------------------------------------------------------
+2. ANÁLISIS DEL ESPACIO DE DIRECCIONES DE UNA TAREA
+Para obtener las direcciones físicas emplearemos la función get_pte(), la cual se comunica con un módulo del 
+núcleo (driver) denominado linmem que le permite acceder a la tabla de páginas de la tarea y por lo tanto 
+obtener las direcciones físicas.
+incluir el archivo de cabecera atc/linmem.h en el código fuente y emplear la opción -lmem dentro 
+de la orden de compilación y enlazado
+
+$> systemctl status linmem		--> El módulo linmem está disponible en la máquina virtual, pero
+					vamos a comprobar que esté activo, en caso de q no hacer lo de abajo
+$> cd /usr/src/atc/linmem
+$> sudo make clean
+$> sudo make install
+
+Valores en el archivo 3-4print-pte.c:
+// Store the flags associated with the memory page
+flags_vp = pte & 0xFFF;  // Extract flags from bits 1-11 of the pte
+
+// Calculate the memory physical address
+physical_addr = (pte & 0xFFFFF000) | ((unsigned int)virtual_addr & 0x00000FFF);
+
+$> gcc 3-4print-vm.c 3-4print-pte.c -o 3-4print-vm -lmem	--> Compila ficheros conjuntos con -lmem
+
+$> gcc -Wall 3-4proclinux-1.c 3-4print-pte.c -o 3-4proclinux-1 -lmem	--> La opción -Wall hace que se
+									se muestren todos los avisos de
+									compilación
+
+¿Coinciden las direcciones virtuales de la variable local en dos instancias distintas del programa?
+- No coinciden porque las variables locales se crean en la pila y, para evitar problemas de seguridad, 
+el SO operativo evita colocar la pila siempre en las mismas direcciones virtuales.
+
+¿Coinciden las direcciones virtuales de las variables globales de ambos programas?
+- Son las mismas porque se asignan en tiempo de compilación y enlazado por gcc. En algunas ocasiones, 
+dependiendo del sistema operativo, podrían no coincidir, si éste, por motivos de seguridad, 
+reubica la sección de datos en memoria virtual en cada ejecución del programa.
+
+¿Coinciden las direcciones físicas de las variables locales y globales?
+- En ambos casos no hay coincidencia de direcciones físicas porque a cada instancia del programa en 
+ejecución le corresponden páginas de la memoria física distintas para que un programa no escriba en las 
+variables del otro.
+
+¿Coinciden las direcciones físicas de la función print_virtual_physical_pte() en instancias distintas 
+del programa?
+- En este caso, al ser código y no escribirse en esa zona del programa, la página de memoria física en 
+la que se carga es compartida para que todas las instancias en ejecución puedan compartirla y tener 
+únicamente una copia en memoria del código ejecutable.
+-----------------------------------------------------------------------------------------------------------
+3. ASIGNACIÓN DINÁMICA DE MEMORIA
+Se proporcionan servicios que permiten que una tarea, a lo largo de su ejecución, pueda pedir más memoria 
+cuando la necesita y liberarla más adelante cuando ya no le hace falta.
+Si la memoria se solicita al sistema operativo, éste puede establecer restricciones sobre la máxima 
+cantidad de memoria que puede asignar a una tarea, así como la proporción de reparto de ésta entre 
+la memoria física y el archivo de paginación. La memoria solicitada por una tarea al sistema operativo 
+se asocia a un rango de direcciones virtuales que puede ser especificado por la tarea en el momento de 
+llamar al servicio, aunque lo habitual es dejar libertad al sistema operativo para que elija el rango 
+de direcciones virtuales de la tarea más apropiado.
+-----------------------------------------------------------------------------------------------------------
+3.1 PRIMERA FORMA DE LLEVAR A CABO LA PETICIÓN DE MEMORIA: EL SERVICIO MMPAP DE POSIX
+POSIX engloba un conjunto de estándares de interfaz con el sistema operativo. Buscan que una aplicación 
+pueda compilarse y ejecutarse directamente sobre diferentes sistemas operativos.
+
+La función shm_open() crea un descriptor de memoria con un cierto nombre y unos parámetros de acceso al mismo. 
+El nombre debe comenzar con el carácter "/"
+
+La función ftruncate() configura el descriptor de memoria con un tamaño de 16 KiB. Una vez ejecutada esta 
+función tenemos un descriptor de memoria configurado, pero la tarea aún no ha recibido los 16 KiB de memoria.
+
+Parámetros empleados en la llamada a la función mmap():
+if( p = mmap(NULL, 16*1024, PROT_READ|PROT_WRITE, MAP_SHARED, memd, 0)) == MAP_FAILED)
+- NULL: El S.O elige la dirección virtual de comienzo. Si especificásemos una dirección, el S.O debería mapear
+la memoria a partir de esa dirección virtual.
+- 16*1024: Tamaño del área de memoria a mapear. No tiene por qué coincidir con el valor empleado en la llamada 
+a ftruncate(), pues podríamos por ejemplo pedir primero 4 KiB y después pedir los 12 KiB restantes.
+- PROT_READ|PROT_WRITE: Indica que el área de memoria que le asignará el S.O será de lectura y escritura.
+- MAP_SHARED. Indica que la memoria puede ser accedida desde otras tareas. Permite la compartición del área 
+de memoria solicitada por aquellas tareas que crearán sus descriptores de memoria usando el mismo nombre y 
+eliminando la opción O_CREAT. Si se desea impedir la posibilidad de compartición con otra u otras tareas 
+debería especificarse la opción MAP_PRIVATE.
+- memd. Es el descriptor de memoria, previamente creado y configurado.
+- 0. Especifica el desplazamiento dentro del elemento a mapear. En nuestro caso siempre será cero.
+- Éxito-->la función devuelve la dirección virtual a partir de la cual el S.O ha mapeado la memoria solicitada.
+En caso contrario, la función devuelve el valor MAP_FAILED.
+
+gcc -Wall 3-4proclinux-2.c 3-4print-pte.c -o 3-4proclinux-2 -lrt -lmem	--> -lrt especifica el enlazado con la
+									biblioteca de tiempo real, en las que
+									están las funciones shm_open() y 
+									shm_unlink()
+
+
+¿Qué ocurre con la dirección física de comienzo del área de memoria solicitada después de la petición de 
+memoria?
+- La página no está en memoria física, sino en el archivo de paginación, es decir, no tieen dirección física
+Todavía no se ha accedido a la página y, por lo tanto, el sistema no le ha asignado direcciones físicas.
+
+cp ./3-4proclinux-2.c ./3-4proclinux-3.c
+
+¿Qué ocurre con la dirección física de comienzo del área de memoria solicitada después de acceder a ella?
+- Se produce un fallo de página recuperable y la página correspondientes se lleva a memoria. 
+A continuación  linmem ya retorna una ETP asociada a una págia en memoria.
+La respuesta correcta es: Es una dirección normal en la forma 0xXXXXXXXX
+----------------------------------------------------------------------------------------------------------
+3.2. EL SERVICIO DE MUNMAP DE POSIX
+¿Qué ocurre con la dirección después de la liberación de la memoria con munmap()?
+- La página deja de estar en memoria física, es decir, no tiene dirección física
+----------------------------------------------------------------------------------------------------------
+3.3. Las funcionas malloc() y free()
+Menos potentes que las funciones POSIX mmap() y mummap(), permiten llevar a cabo mucho más fácilmente la 
+solicitud y liberación dinámica de memoria
+La implementación de la función malloc() emplea el montón (heap) para ubicar la memoria solicitada
+La función malloc() recibe como parámetro el número de bytes del área de memoria a solicitar y devuelve la 
+dirección virtual de comienzo a partir de la cual se ubica dicho área de memoria. Cuando ocurre un error 
+durante su ejecución devuelve NULL.
+Una vez que el área de memoria solicitada ya no es necesaria se debe liberar, para lo cual se emplea la 
+función free()
+
+¿En qué zona de memoria de la tarea se encuentra ubicado el área de memoria solicitada?
+- Miramos el virtual adress que nos sale  y lo buscamos en el maps, vemos que se encuentra en [heap], es
+decir, montón. Apreciando así, que se la ubicación se selecciona automáticamente
+
+¿En qué zona se han asignado los 256 KiB de memoria solicitada?
+- Miramos el virtual adress que nos sale  y lo buscamos en el maps, vemos que se encuentra en <huecoVacio>, es
+decir, está en una zona sin nombre donde se debe reservar un área nueva.
+Se asigna en una zona nueva sin nombre porque se ha solicitado una cantidad de memoria superior a la 
+asignada inicialmente al heap, por lo que éste no tiene capacidad para alojar esa cantidad de memoria. 
+Hay que reservar un área nueva.
+La respuesta correcta es: Zona sin nombre
+-------------------------------------------------------------------------------------------------------------
+4. LA TABLA DE PÁGINAS EN GNU/LINUX
+La máquina empleada en prácticas emplea un esquema de paginación con dos tamaños de página posibles: 
+4 KiB, que requiere traducción en dos pasos, y 4 MiB, que se puede traducir en un paso.
+
+- Los bits 31 a 12 (Page Base Address) de la ETP contienen el marco de página y por lo tanto la traducción 
+de la página virtual cuando el bit de presencia P está a 1. El resto de bits constituyen los flags, 
+empleados para establecer las características de la página. Los flags más destacados son estos:
+- Bit 0 (P). Se trata del bit de presencia. Cuando está a 1 la página está en memoria y los bits 31 a 12 
+contienen un marco de página válido.
+- Bit 1 (R/W). Cuando toma el valor 0 la página es de sólo lectura, mientras que cuando toma el valor 1 es 
+de lectura y escritura.
+- Bit 2 (U/S). Cuando toma el valor 0 la página es de supervisor, esto es, sólo puede acceder a la misma el 
+sistema operativo. Cuando toma el valor 1 la tarea también puede acceder a ella.
+- Bit 3 (PWT). Cuando está a 1 y está habilitada la caché indica que la página emplea una estrategia de 
+escritura write-through para la página. Cuando está a cero emplea la estrategia write-back.
+- Bit 4 (PCD). Cuando está a 1 la caché está deshabilitada para la página y por lo tanto cualquier acceso 
+va directamente a memoria principal. En caso contrario, la caché está habilitada.
+- Bit 5 (A). Se pone a 1 cuando la página es accedida, ya sea en lectura o en escritura. Una vez se pone 
+a 1 no se pone a 0 hasta que el sistema operativo reinicia este bit escribiendo sobre la ETP.
+- Bit 6 (D). Es análogo al bit de dirty de las cachés. Cuando se escribe en la página este bit se pone a 
+1, de tal forma que si en un futuro es necesario reemplazar la página en memoria para llevar una nueva 
+página, la página reemplazada no se descarta, sino que se guarda en disco.
+- Bit 8 (G). Este bit cuando está a 1 marca la ETP como global. Por lo tanto, la ETP es válida para todas 
+las tareas y no es necesario vaciar la copia de esta ETP en el TLB cada vez que se produce un cambio de 
+contexto de una tarea a otra. Las páginas del sistema operativo suelen tener este bit a 1.
+
+¿Por qué coinciden los flags de la pagina virtual de la variable global y local?
+- Como ambas son páginas para albergar variables, ambas comparten las mismas propiedades, aunque se asignen 
+en áreas de la memoria distintas, es decir, ambas son páginas de datos
+
+¿Por qué no coinciden los flags de la página de memoria asignada a la función con las páginas asignadas 
+a las variables de memoria?
+- La página de memoria asignada a la función está prevista para alojar código. En la zona de código no 
+se puede escribir por lo que el bit correspondiente no tiene que estar activo. En las páginas de las 
+variables se alojaran datos, es decir, la asignada a la función es para código, y la de memoria para datos
+
+¿Qué flags son diferentes respecto a las páginas de las variables? ¿Por qué? 
+Se diferencia en dos bits:
+- El de Lectura/Escritura ya que la página, la albergar código, es de solo lectura.
+- El de escrita (dirty). Este bit indica que se ha escrito en esa página de memoria y, como es de solo 
+  lectura, no es posible que está activo.
+La respuesta correcta es: El bit de lectura/escritura y el de escrita (dirty)
+
+$> sudo cat /proc/iomem		--> Contiene las direcciones físicas asignadas a diferentes elementos del sistema
+En el contenido del archivo iomem podemos ver que hay tres zonas en memoria física asociadas a elementos 
+del núcleo de Linux: kernel code, kernel data y kernel bss. En esas zonas de la memoria física es dónde el 
+sistema operativo aloja su código, sus datos inicializados y sus datos sin inicializar.
+EJ: variable inicializada en un programa es int a = 5; mientras que una variable no inicializada sería int b ;
+
+¿Qué rango de direcciones virtuales y físicas ocupan?
+- Dir virtual = Dir. física + 0xC00000000
+
+¿Es posible que los flags de la página de datos coincidan con los de la página de código?
+- Si es posible si la página de datos inicializados contiene constantes
+
+¿Ves alguna relación entre los dos tipos de direcciones física y virtual de las páginas de datos no inicilizados?
+- Sí, las direcciones son iguales a las físicas más C0000000h.
+
+
+
+
+
+
+
+
+
+
+
+

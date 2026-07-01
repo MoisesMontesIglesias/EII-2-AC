@@ -1,0 +1,285 @@
+student
+Romanon04
+
+$> cd /    		Cambia el directorio de trabajo al directorio raíz.
+
+$> cd etc       	Baja un nivel en la jerarquía de directorios al directorio /etc.
+
+$> cd /usr/include	Vete al directorio /usr/include especificando una ruta absoluta.
+
+$> cd -			Retrocede al directorio anterior.
+
+$> cd ..		Sube un nivel en la jerarquía de directorios. Ten cuidado,
+$> pwd			hay un espacio entre el nombre del comando y los dos puntos.
+/
+
+$> cd			Vete al directorio home, es decir, al directorio de trabajo por defecto
+$> cd ~			cuando arrancas la interfaz de comandos. Esto puede hacerse de varias formas.
+$> cd $HOME
+
+$> cat /etc/hostname	muestra el contenido de un fichero, especificando su ruta absoluta y, por lo tanto, 
+			funcionará independientemente del directorio donde esté situado el usuario. "Devuelve 2ac"(nombre de la maquina)
+
+$> cd
+$> pwd
+/home/student
+$> cat ../../etc/hostname
+2ac
+$> cd /etc
+$> cat hostname
+2ac
+$> cd ..
+$> cat ./etc/hostname
+2ac
+$> cat etc/hostname
+2ac
+
+$> ls			contenido de un directorio puede listarse con el comando ls.
+
+/home			directorio donde se ubican los directorios de los usuarios. 
+
+/bin			Contiene comandos que pueden invocarse, tales como el comando pwd.
+
+/dev			se ubican los ficheros especiales que permiten acceder a los dispositivos del computador y periféricos.
+
+/etc			Contiene la mayor parte de los ficheros para la configuración del sistema y de los programas instalados.
+
+/proc			Contiene ficheros con información del sistema.
+
+$> cd
+$> nano -c 1-1texto.txt Edita un fichero de texto utilizando el editor. -c hace que el editor muestre los números de linea en la parte inferior
+
+Ctrl + o + Enter 	Confirma el nombre del fichero
+Ctrl + x		Sal del editor
+
+$> nano -c /home/student/1-1texto.txt		Abre el fichero recién creado especificando su ruta absoluta
+
+$> ls -l					Muestra ademas del nombre de los ficheros, sus atributos, así como sus archivos
+total 12
+drwxr-xr-x 2 student student 40 2011-06-10 10:42 directorio
+-rw-rw-r-- 1 student student 43 2011-06-10 10:07 1-1texto.txt
+-rw-r--r-- 1 student root   16 2011-06-10 10:40 otro.txt
+-rwxr-xr-x 1 student student 18 2011-06-10 10:39 script
+
+$> chmod -w 1-1texto.txt			Los permisos de un fichero pueden cambiarse utilizando el comando chmod. Por ejemplo, se puede eliminar
+$> ls -l 1-1texto.txt				 el permiso de escritura sobre el fichero 1-1texto.txt de la siguiente forma:
+-r--r--r-- 1 student student 43 2011-06-10 10:07 1-1texto.txt	
+
+Usuario propietario: todos los permisos ⇒ rwx ⇒ 111b ⇒ 7d.
+
+Grupo propietario: lectura y escritura ⇒ rw- ⇒ 110b ⇒ 6d.
+
+Resto de usuarios: solo lectura ⇒ r-- ⇒ 100b ⇒ 4d.
+
+$> whoami					Comprueba con qué usuario estás dentro del sistema
+student
+
+$> apt-get update				Actualizar lista de paquetes
+
+$> sudo apt-get update				Invoca comando con permisos de superusuario
+
+$> sudo apt-get upgrade				Actualiza el sistema 
+
+OPERACIONES BASICAS CON FICHEROS
+$> mkdir ~/dir					Crea un directorio de nombre dir que cuelgue de tu directorio home. Para ello debes utilizar el comando mkdir
+
+$> cd ~/dir					Haz una copia del fichero 1-1texto.txt dentro del directorio recién creado que tenga el nombre 
+$> cp ./1-1texto.txt ./1-1copia1.txt		1-1copia1.txt. Para ello debes utilizar el comando cp
+
+$> mv 1-1copia1.txt ../1-1copia2.txt		Renombra el fichero 1-1copia1.txt a 1-1copia2.txt al tiempo que lo mueves a tu directorio 
+						home utilizando el comando mv
+
+$> cd ..					Elimina el fichero 1-1copia2.txt utilizando el comando rm
+$> rm 1-1copia2.txt
+
+$> rmdir dir					Elimina el directorio dir que creamos al principio con el comando rmdir
+
+AYUDA EN LINEA
+$> man ls					Consulta el manual acerca del comando ls. Puedes salir del manual pulsando Q.
+
+DETENER EL SISTEMA
+$> sudo poweroff				Apaga la máquina virtual usando el siguiente comando.
+
+$> sudo reboot					Puede utilizarse el comando reboot para reiniciar la máquina, esto es, apagarla y volver a arrancarla.
+
+CONTROL DE VERSIONES
+$> git config --global user.name "<usuario>"
+$> git config --global user.email "<correo>"
+$> git clone https://<usuario>@bitbucket.org/<usuario>/2ac-plX-uo<xxxxxx>.git
+Cambia al directorio 2ac-plX-uo<xxxxxx>
+$> git config credential.helper store
+
+$> git status					comprobar cómo git detecta que existe un nuevo fichero
+$> git add README.md				Indícale a git los cambios que se han producido
+$> git status					Comprueba de nuevo el estado del repositorio
+$> git commit					Confirma los cambios indicando una descripción de los mismos.
+$> git push --set-upstream origin master	en posteriores llamadas; basta con llamar al comando git push
+$> git log					comprobar el histórico de cambios en tu repositorio local
+$> git pull					Cambia al directorio de tu repositorio y sincronízalo con el repositorio de Bitbucket para actualizar los 
+						cambios que se hubiesen realizado con anterioridad.
+
+PROGRAMA
+$> gcc -c 1-1hello.c				Compilación: consiste en convertir los ficheros fuentes en lenguaje C a su 
+$> ls *.o					equivalente código objeto (código máquina).La compilación se realiza invocando
+1-1hello.o					al compilador pasándole la opción -c junto con los ficheros fuente a compilar. 
+
+$> gcc 1-1hello.o -o 1-1hello			Enlazado: generación del ejecutable a partir de los códigos objeto y las bibliotecas necesarias
+$> ls -l 1-1hello				se le puede indicar el nombre del ejecutable deseado utilizando la opción -o. 
+-rwxr-xr-x 1 student student 7155 2011-06-10 16:26 1-1hello		En otro caso, el compilador siempre generará un ejecutable de nombre a.out.
+
+$> git add 1-1hello.c				Añade el fichero que acabas de crear al control de versiones.
+$> git commit					Confirma los cambios.
+
+$> gcc -c 1-1circle.c 1-1program.c		Compila ambos ficheros para obtener los ficheros objeto.
+
+$> gcc 1-1circle.o 1-1program.o -o 1-1program	Enlaza el programa indicando el fichero objeto donde está la función circleArea
+
+$> gcc 1-1root.o -lm -o 1-1root			Enlazar con sqrt (-lm)
+
+SALIDA POR PANTALLA
+Especificadores de formato. Se utilizan para mostrar el valor de variables. Comienzan por el carácter %:
+	%c: carácter (tipo char).
+	%d: entero decimal con signo (tipo int).
+	%f: real (tipo float o double).
+	%s: cadena de caracteres (tipo char *).
+	%x: entero en formato hexadecimal.
+	%p: puntero.
+
+// Imprimir el contenido de i
+    printf("Valor de i: %d\n", i);
+
+// Imprimir el contenido de f
+    printf("Valor de f: %f\n", f);
+
+// Imprimir el contenido de la cadena
+    printf("Contenido de la cadena: %s\n", s);
+
+CARACTERISTICAS DEL SISTEMA A MEDIR
+$> cat /proc/cpuinfo			obteniendo información del procesador del sistema. También comandos lscpu y lshw
+$> sudo dmidecode -t 2			El modelo de la placa base
+$> cat /proc/meminfo			información de la memoria que se te solicita utilizando alguna de estos comandos: free, top o lshw.
+$> sudo dmidecode -t 17			tipo de memoria
+
+Otros comandos que podrías utilizar son hwinfo y inxi, si bien tendrías que instalarlos previamente.	
+Puedes instalar ambos paquetes con el siguiente comando sudo apt-get install hwinfo inxi.
+
+$> cat /etc/lsb-release			versión del sistema operativo
+
+MEDIR EXCEL VALORES
+MEDIA = PROMEDIO(...)
+DESVIACIÓN TÍPICA = DESVEST.M(...)
+INTERVALO DE CONFIANZA(INF) = MEDIA - 2*DESV.TIP
+INTERVALO DE CONFIANZA(SUP) = MEDIA + 2*DESV.TIP
+PRODUCTIVIDAD(TAREAS/MIN) =1*60/MEDIA (acordarse del nº de núcleos)
+ACELERACIÓN(SUT/REF) = PRODUCTIVIDAD MEJORADA/PRODUCTIVIDAD ORIGINAL
+
+$> gcc 1-2thread.c -lm -o 1-2thread -lpthread <--> (multihilo) (-lm para sqrt,sin...)
+
+OPTIMIZACIÓN
+Debe cogerse el valor real
+Fórmula para calcular la aceleración del programa: 1/((1-B15)+(B15/B16))
+B15 = % tiempo ejecución
+B16 = Aceleración función
+
+para obtener el tiempo de ejecución del programa: G3/B17
+G3 = Media
+B17 = Aceleración total
+
+$> time ./prog1			Devuelve el tiempo que tarda en ejecutarse
+
+$> gcc prog1.c -pg -o prog1	incluya el código del profiler.
+$> gprof ./prog1 > informe.txt	Devuelve un informe del tiempo que tarda cada metodo
+
+-pg 				análisis de rendimiento.	
+
+gprof ./prog2 > informe1.txt	Genera un informe sobre el rendimiento
+nano informe1.txt		Ver el rendimiento
+
+$> gcc -O1 prog1.c -o prog1	nivel más básico de optimización: 
+IMPORTANTE LETRA O MAYUSCULA !!!!
+$> gcc -O2 prog1.c -o prog1	segundo nivel de optimización
+
+Mejora el tiempo de respuesta de prog1 compilando con -O2 con respecto a la versión compilada con -O1
+Mejora el tiempo de respuesta de prog1 compilando con -O3 con respecto a la versión compilada con -O2
+versión más rápida: Utilizar prog2, el programa optimizado a mano
+
+SISTEMAS OPERATIVOS SESION 2-4:
+$> ulimit -c unlimited		forzar la generación del archivo core en caso de excepción.
+
+consola mensaje: Segmentation fault (core dumped)
+¿Qué ha ocurrido al intentar deshabilitar las interrupciones en Linux al ejecutar el programa 2-4priv? ¿Cuál es la razón?
+Se ha producido una excepción. La razón es que la instrucción de deshabiliitar las interrupciones es una instrucción privilegiada y no puede ejecutarla una tarea.
+
+$> gdb 2-4priv core		ejecutar el depurador gdb que es el habitual de los sistemas Linux
+el archivo ejecutable no contiene información de depuración
+
+Sal del depurador con la orden quit
+
+$> gcc -g 2-4priv.c		añade dentro del archivo ejecutable información para la depuración.
+
+//IMPORTANTE!!!!!
+Debes borrar siempre el archivo core, pues si ya existe NO SE SOBREESCRIBE.
+
+Ejecuta de nuevo el programa y ahora te indicará una línea en el archivo fuente.
+Hace referencia al bloque ensamblador
+EXPLICACION: el bloque en su conjunto se interpreta como una única instrucción de alto nivel.
+
+(gdb) layout asm		Para ver la instrucción ensamblador que produce la excepción
+Se abre una ventana con la traducción a ensamblador del código del programa y que el programa está 
+detenido sobre la instrucción concreta que produjo la excepción, en este caso cli.
+
+(gdb) layout prev		Volver a ver el código del programa en lenguaje C,
+
+¿Qué ha ocurrido al ejecutar el programa 2-4mem1? 
+Se ha generado una excepción y el programa termina de forma abrupta. La razón es que ha 
+intentado acceder a una dirección que no pertenece a ninguno de los rangos de direcciones 
+que tiene asignados.
+
+¿Qué instrucción da lugar a la excepción al ejecutar el programa 2-4mem1?
+La primera instrucción que escribe en una dirección de memoria no válida
+La respuesta correcta es: p = 0x0000;
+
+¿Porque la instrucción que asigna la dirección de memoria al puntero p no genera una excepción?
+La instrucción que modifica p escribe sobre una variable del programa, por lo que si estuviese 
+en memoria tendría una dirección válida y por lo tanto no podría dar lugar a excepción por 
+acceso a una dirección no válida.
+
+constante NULL se emplea para inicializar punteros en C y habitualmente toma el valor cero.
+
+¿Qué instrucción crees que dará lugar a una excepción en el programa 2-4mem2?
+La respuesta correcta es: printf("%d\n", p);
+
+¿Cuál es el tipo de VMM de VirtualBox?
+Tipo 2
+
+$> dmesg | grep paravirt	La orden dmesg permite obtener los mensajes que genera el núcleo
+
+¿Qué obtienes al ejecutar dmesg | grep paravirt?	[    0.000000] Booting paravirtualized kernel on KVM
+
+Ctrl+Shift+Esc			comprobar cuántos núcleos tiene el procesador físico
+
+$> nproc --all 			número de núcleos
+
+
+SEGUNDO EXAMEN PRÁCTICO
+
+sudo apt install nasm			Instalar nasm
+
+make bandwidth32			Crear un fichero que compila la versión de 32 bits
+
+chmod +x ./bandwidth32			Si el fichero no tiene permisos de ejecución, escribir esto:
+
+sudo ./bandwidth32 | more		Si el fichero es dueño de otra persona o requiere de privilegio elevados
+
+./bandwidth32 | more			Ejecuta el programa
+
+
+
+
+
+
+
+
+
+
+

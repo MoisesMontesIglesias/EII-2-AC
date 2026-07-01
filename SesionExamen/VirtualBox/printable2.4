@@ -1,0 +1,150 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2023.10.29 12:28:01 =~=~=~=~=~=~=~=~=~=~=~=
+login as: student
+student@localhost's password: 
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-210-generic i686)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+12 packages can be updated.
+2 updates are security updates.
+
+
+Last login: Fri Oct 27 22:52:49 2023 from 10.0.2.2
+student@2ac:~$ git pull
+fatal: Not a git repository (or any of the parent directories): .git
+student@2ac:~$ cd `pr`prac practicaExamen
+-bash: cd: practicaExamen: No such file or directory
+student@2ac:~$ ls
+1-1texto.txt  git  practica-examen
+student@2ac:~$ cd practica-examen
+student@2ac:~/practica-examen$ ls
+readme  sesion1-1  sesion1-2  sesion1-2.tar.gz  sesion1-3  sesion1-3.tar.gz
+student@2ac:~/practica-examen$ git pull
+Already up-to-date.
+student@2ac:~/practica-examen$ wget http://rigel.atc.uniovi.es/grado/2ac/files/s esion2-4.tar.gz
+--2023-10-29 12:30:48--  http://rigel.atc.uniovi.es/grado/2ac/files/sesion2-4.tar.gz
+Resolving rigel.atc.uniovi.es (rigel.atc.uniovi.es)... 156.35.151.4
+Connecting to rigel.atc.uniovi.es (rigel.atc.uniovi.es)|156.35.151.4|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 542 [application/x-gzip]
+Saving to: sesion2-4.tar.gz
+
+sesion2-4.tar.gz      0%[                    ]       0  --.-KB/s               sesion2-4.tar.gz    100%[===================>]     542  --.-KB/s    in 0s      
+
+2023-10-29 12:30:48 (80.1 MB/s) - sesion2-4.tar.gz saved [542/542]
+
+student@2ac:~/practica-examen$ tar xvfz sesion2-4.tar.gz
+sesion2-4/
+sesion2-4/2-4priv.c
+sesion2-4/2-4mem1.c
+sesion2-4/2-4mem2.c
+student@2ac:~/practica-examen$ git add sesion2-4
+student@2ac:~/practica-examen$ git commit
+[ Reading File ][ Read 51 lines  GNU nano 2.5.3 File: ...student/practica-examen/.git/COMMIT_EDITMSG           # Please enter the commit message for your changes. Lines starting# with '#' will be ignored, and an empty message aborts the commit.# On branch master# Your branch is up-to-date with 'origin/master'.## Changes to be committed:#new file:   sesion2-4/2-4mem1.c#new file:   sesion2-4/2-4mem2.c#new file:   sesion2-4/2-4priv.c## Untracked files:#sesion1-1/.1.1root.c.swp#sesion1-1/1-1add.c#sesion1-1/1-1add.o#sesion1-1/1-1circle.c#sesion1-1/1-1circle.h#sesion1-1/1-1circle.o#sesion1-1/1-1explicit^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To LineModifiedsesion SO2SO.SO3SO4SOSOSO4SO-SO--SO>SO SOFile Name to Write: /home/student/practica-examen/.git/COMMIT_EDITMSG              M-D DOS Format  M-A Append      M-B Backup FileC Cancel       M-M Mac Format  M-P Prepend     ^T To Files [ Wrote 51 lines ]        ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur PosX Exit      ^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Line[master 0cc9530] sesion 2.4--> SO
+ 3 files changed, 29 insertions(+)
+ create mode 100755 sesion2-4/2-4mem1.c
+ create mode 100755 sesion2-4/2-4mem2.c
+ create mode 100755 sesion2-4/2-4priv.c
+student@2ac:~/practica-examen$ cls
+readme     sesion1-2         sesion1-3         sesion2-4
+sesion1-1  sesion1-2.tar.gz  sesion1-3.tar.gz  sesion2-4.tar.gz
+student@2ac:~/practica-examen$ cd sesioin 2-4
+-bash: cd: sesion: No such file or directory
+student@2ac:~/practica-examen$ cd sesion2-.4
+-bash: cd: sesion2-.4: No such file or directory
+student@2ac:~/practica-examen$ cd sesion2-.44
+student@2ac:~/practica-examen/sesion2-4$ ls
+2-4mem1.c  2-4mem2.c  2-4priv.c
+student@2ac:~/practica-examen/sesion2-4$ ulimit -c unlkimited
+student@2ac:~/practica-examen/sesion2-4$ nano 2-4priv.c
+[ Reading File ][ Read 17 lines (Converted from DOS format) ]  GNU nano 2.5.3              File: 2-4priv.c                                   /* Disable interrupts for several seconds */int main() {long int i, j; /* Disable interrupts */__asm__("cli");  /* Wait for several seconds */for (i = 0; i < 5000; i++)for (j = 0; j < 1000000; j++);/* At the exit of any program status register is restored, so interrupts are enabled again */}^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos^X Exit^R Read File ^\ Replace   ^U Uncut Text^T To Spell  ^_ Go To Linestudent@2ac:~/practica-examen/sesion2-4$ gcc -c 2-4pric.v.c
+student@2ac:~/practica-examen/sesion2-4$ gcc 2-4priv-.o -o 2-4priv
+student@2ac:~/practica-examen/sesion2-4$ ./2-4priv
+Segmentation fault (core dumped)
+student@2ac:~/practica-examen/sesion2-4$ ^C
+student@2ac:~/practica-examen/sesion2-4$ gdb 2-34priv core
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.5) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from 2-4priv...(no debugging symbols found)...done.
+[New LWP 1625]
+Core was generated by `./2-4priv'.
+Program terminated with signal SIGSEGV, Segmentation fault.
+#0  0x080483e1 in main ()
+(gdb) quit
+student@2ac:~/practica-examen/sesion2-4$ rm cls
+2-4mem1.c  2-4mem2.c  2-4priv  2-4priv.c  2-4priv.o  core
+student@2ac:~/practica-examen/sesion2-4$ rm core
+student@2ac:~/practica-examen/sesion2-4$ gcc -g 2-4priv.c
+student@2ac:~/practica-examen/sesion2-4$ ^C
+student@2ac:~/practica-examen/sesion2-4$ GCCgcc 2-4priv.o -o 2-4priv
+student@2ac:~/practica-examen/sesion2-4$ ./2-4priv
+Segmentation fault (core dumped)
+student@2ac:~/practica-examen/sesion2-4$ gdb 2-4priv core
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.5) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from 2-4priv...(no debugging symbols found)...done.
+[New LWP 1639]
+Core was generated by `./2-4priv'.
+Program terminated with signal SIGSEGV, Segmentation fault.
+#0  0x080483e1 in main ()
+(gdb) layout asm
+core LWP 1639 In:                                                  L??   PC: ??    lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqkxxxxxxxxxxxxxxxxxxxxxxxxxxmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj[ No Source Available ]   [ No Source Available ]mainL??   PC: 0x80483e1
+   lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqkxxxxxxxxxxxxxxxxxxxxxxxxxxmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj[ No Source Available ]   lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqkxxxxxxxxxxxxx[ No Source Available ]xxxxxxxxxxxxxmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqjcore LWP 1639 In: main                                      L??   PC: 0x80483e1    [ No Source Available ]   lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqkxxxxxxxxxxxxxxxxxxxxxxxxxxmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj[ No Assembly Available ]   lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqkxxxxxxxxxxxxxxxxxxxxxxxxxxmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj0x80483e1 <main+6>      cli    
+0x80483e2 <main+7>movl   $0x0,-0x8(%ebp)
+0x80483e9 <main+14>     jmp    0x8048405 <main+42>
+0x80483eb <main+16>     movl   $0x0,-0x4(%ebp)
+0x80483f2 <main+23>     jmp    0x80483f8 <main+29>
+0x80483f4 <main+25>     addl   $0x1,-0x4(%ebp)
+0x80483f8 <main+29>     cmpl   $0xf423f,-0x4(%ebp)
+0x80483ff <main+36>     jle    0x80483f4 <main+25>
+0x8048401 <main+38>     addl   $0x1,-0x8(%ebp)
+0x8048405 <main+42>     cmpl   $0x1387,-0x8(%ebp)
+0x804840c <main+49>     jle    0x80483eb <main+16>
+0x804840e <main+51>     mov    $0x0,%eax
+0x8048413 <main+56>     leave
+  >
+
+(gdb) layout prev
+
+
+
+
+
+
+
+
+
+
+
+
+[ No Source Available ]   [ No Source Available ]
+   (gdb) quit
+student@2ac:~/practica-examen/sesion2-4$ rm core
+student@2ac:~/practica-examen/sesion2-4$ sudo porweorowreroff
+[sudo] password for student: 

@@ -1,0 +1,194 @@
+SESION 3.1
+
+En el caso de un programa que comience en la direccion de memoria 0800h
+1- ¿A que direccion de memoria accede si en el ciclo de reloj 2 la etapa IF de la segunda instrucción está activa?
+0804h
+
+2- ¿A qué dirección de memoria accede si en el ciclo 3 la etapa IF accede a la memoria a buscar la tercera instruccion?
+0808h
+
+3- ¿A qué rango de direcciones de memoria se accede durante X ciclo para buscar en la etapa IF?
+080C-080Fh
+
+4- En el ciclo de reloj 7 la etapa MEM accede a la memoria para leer el primer carácter de la 
+cadena que se encuentra en la dirección string(r10). ¿A qué dirección de memoria accede? 
+0400h --> data memory
+
+EJEMPLOS DE LOCALIDAD ESPACIAL EN EL ACCESO AL CÓDIGO DEL PROGRAMA ANTERIOR
+Acceso secuencial a las instrucciones de código
+
+EJEMPLO DE LOCALIDAD TEMPORAL EN EL ACCESO AL CÓDIGO DEL PROGRAMA ANTERIOR
+Acceso a las instrucciones del bucle
+
+EJEMPLO DE LOCALIDAD ESPACIAL EN EL ACCESO A LOS DATOS DEL PROGRAMA ANTERIOR
+Acceso a los caracteres de la cadena o array uno a uno de forma secuencial
+
+EJEMPLO DE LOCALIDAD TEMPORAL EN EL ACCESO A LOS DATOS DEL PROGRAMA ANTERIOR
+Se accede a cada carácter dos veces, para leerlo y para escribirlo
+--------------------------------------------------------------------------------------------------------------
+INFORMACION A TENER EN CUENTA
+la configuración por defecto de la misma. Por un lado, la arquitectura de memoria es la habitual 
+de MIPS64: la arquitectura Harvard. Por otro lado, la memoria caché está deshabilitada y el tiempo 
+de acceso a memoria principal es de 1 ciclo de reloj. Un tiempo de acceso a memoria principal de 1 
+ciclo de reloj no se correponde con la realidad, pues en la práctica cada acceso a memoria principal 
+suele requerir múltiples ciclos de reloj.
+
+Cache info con esta información:
+- Tamaño de las cachés de código y datos o unificada.
+- Estrategia de correspondencia.
+- División en bits de la dirección.
+- Tiempo de fallo de caché.
+- Tiempo de actualización. Este tiempo siempre coincidirá con el de fallo de caché, pues se supone que
+se tarda el mismo tiempo en llevar un bloque de memoria caché a memoria principal que llevarlo de 
+memoria principal a caché.
+--------------------------------------------------------------------------------------------------------------
+Una vez que hemos introducido la memoria caché, ¿qué crees que ha ocurrido durante la etapa IF (búsqueda 
+de la instrucción) de la primera instrucción?
+- La caché está vacía inicialmente, por lo que se produce un fallo de caché y el bloque en el que se encuentra 
+almacenado el código de la instrucción ha de obtenerse de la memoria principal.
+
+La diferencia la marca la caché cuando se produce un acierto de caché. Simula un nuevo ciclo de reloj. 
+¿Cuántos ciclos de reloj son necesarios en la etapa IF para la búsqueda de la siguiente instrucción?
+- En este caso la etapa de búsqueda IF solo necesita un ciclo de reloj, puesto que el código de instrucción 
+forma parte del mismo bloque de memoria que se trajo de memoria principal a la  memoria caché en la fase 
+de búsqueda de la instrucción anterior. Cuando en la etapa IF se necesita acceder a las direcciones de 
+memoria donde está almacenado el código de la segunda instrucción, estas direcciones están cacheadas y 
+se tiene por tanto un acierto de caché, lo que conlleva que se sirvan en un ciclo de reloj.
+
+INFORMACIÓN IMPORTANTE:
+Empleando una memoria caché, debe emplear menos ciclos de reloj que sin utilizar la memoria caché
+---------------------------------------------------------------------------------------------------------------
+Miramos la Figura 2. Detenciones en la etapa IF del pdf. ¿Por qué se produce una detención estructural?
+- La etapa MEM sufre una detención de tipo estructural. Al estar configurada una única memoria para código 
+y datos, la etapa MEM de la segunda instrucción tiene que esperar para escribir en memoria a que la etapa 
+IF de la tercera instrucción (beqz r20, final) complete la busqueda en memoria del código de instrucción. 
+Como en este caso se ha producido un fallo de caché, la etapa de búsqueda requiere 8 ciclos de reloj, de 
+los cuales cuatro se superponen con la etapa MEM, lo que provoca la detención. 
+- También la puede sufrir la otra etapa que accede a memoria, la etapa IF, como puedes observar en los ciclos 18 a 25.
+---------------------------------------------------------------------------------------------------------------
+INFORMACIÓN IMPORTANTE SOBRE WRITE-THROUGH Y NO-WRITE-ALLOCATE
+La configuración de la memoria para que utilice write-through y no-write-allocate. Con esta nueva configuración 
+cuando se produce acierto de caché en escritura se escribe a la vez en la memoria caché y en la memoria principal. 
+Cuando se produce fallo de caché en escritura no se lleva el bloque de memoria principal a caché y sólo se escribe
+en memoria principal.
+---------------------------------------------------------------------------------------------------------------
+Características de la MEMORIA:
+HARVARD, 8, line syze: 16, nº of lines: 32, associativity: 1, write through, no-write-allocate, cache miss: 16
+
+¿Puede haber actualización de la memoria principal durante algún acceso a memoria? ¿Por qué?
+- Sí, durante un acceso de escritura en una dirección no cacheada mientras la memoria caché está siendo 
+usada por otra instrucción.
+
+¿Cuál será el tiempo de acceso a memoria (en ciclos) durante un fallo de caché en escritura usando la 
+configuración write-through y no-write-allocate?
+- 8 (porq tenemos write-through y no-write-allocate, en caso contrario serían 16)
+
+¿Cuál será el tiempo de acceso a memoria (en ciclos) durante esa segunda ejecución de la instrucción en la que 
+se produce un acierto de caché, usando la configuración write-through y no-write-allocate?
+- 8 (porq el main memory access time es 8, ya q es un acierto; en caso de fallo, serían 16 ciclos
+---------------------------------------------------------------------------------------------------------------
+SIMULACIÓN DE CACHÉ BASADA EN TRAZA
+La simulación basada en traza proporciona una visión de los accesos a memoria simplificada. Supone que los accesos 
+a memoria son independientes de la CPU y de la jerarquía de memoria empleada, lo cual no es cierto
+
+CONTINUAR POR LA TEORIA PUNTO 5.
+INFORMACIÓN SOBRE MEMORY TRACE:
+Contiene la traza de memoria en un formato legible. Cada línea se corresponde con un acceso a memoria, definido
+por una dirección, el número de bytes accedidos y el tipo de acceso: fetch para acceso a código, read para 
+lectura de datos y write para escritura de datos. Una restricción a tener en cuenta es que el simulador supone 
+que cada dirección de memoria hace siempre referencia a 1 byte.
+
+Cada conjunto de caché aparece numerado en la columna set
+Los campos v, d, a y label son metadatos de la caché. Los datos que almacena realmente, asociados a las 
+direcciones de memoria cacheadas son los que aparecen con los valores XXh
+Cada linea de caché almacena 8 bytes
+
+Los fallos de caché se muestran de varias formas. En primer lugar, con el borde rojo en la línea de la traza simulada. 
+También se puede ver en los bytes de datos de la línea de caché afectada, pues aparecen en fondo rojo indicando 
+que ha variado su contenido, tal como ocurre en un fallo de caché. Finalmente, en el panel de estadísticas se 
+muestra en rojo el número de fallos de caché si en el último acceso se ha producido un fallo.
+
+Ejemplo de descomposiciónde un acceso a memoria en campos de etiqueta, conjunto y desplazamiento:
+Dirección: 0804h -> 000 1000 00//00 0//100b
+Etiqueta (los 9 bits más significativos): 0 0010 0000b -> 020h
+Conjunto (3 bits): 000b  -> 0h
+Desplazamiento (los 3 bits menos significativos): 100b -> 4h
+(el número de bits lo sabemos por el adress bits dado)
+IMPORTANTISIMO: SI COLOCAS EL CURSOR SOBRE LA INSTRUCCIÓN TE DA EL VALOR DE ETIQUETA,CONJUNTO Y DESPLAZAMIENTO
+---------------------------------------------------------------------------------------------------------------------
+¿Cuál es la tasa de aciertos de la traza con la configuración de caché dada?
+- Coger el valor del total hit ratio
+---------------------------------------------------------------------------------------------------------------------
+Valor B de la fórmula para calcular el tiempo medio de acceso a memoria se considera como el número de accesos 
+a memoria necesarios para transferir la línea caché. Este número de accesos depende por tanto: del ancho de línea 
+y del bus de datos utilizado para transferir la información
+
+El tiempo necesario para satisfacer un fallo de caché sería el producto del tiempo de acceso a memoria principal 
+por el número de accesos
+ 
+se supone un bus de datos de 64 bits, un tiempo de acceso a lamemoria principal de 8 ciclos, y la memoria caché 
+se ha configurado con un ancho de línea de 8 bytes. Conestos datos, el tiempo necesario para satisfacer un fallo 
+de caché (Cache miss time en el simulador) sería:
+Main memory access time x Line size / Bus size (en bytes). Esto es igual a 8 ciclos x 8 bytes / 8 bytes = 8
+ciclos.
+El tiempo medio de acceso a la jerarquía de memoria con los niveles de, memoria caché y memoria principal viene 
+dada por la expresión:
+T = Ac * tc + (1-Ac)*(tp*B)
+Donde, Ac es la tasa de aciertos en caché; tc es el tiempo de acceso a caché; tp es el tiempo de acceso a memoria 
+principal; y B es el tamaño de línea expresado en bytes.
+La respuesta correcta es: 1,2982
+
+CALCULAR RANDOM HIT RATE(RTR)
+RHR = cache lines/main memory lines = 2^5/2^12 = 0,0078125
+Cache lines = 32 = 2^5
+Main memory line = 2^15 / 2^3 = 2^12 --> Hay 15 bits de adress, por lo q, 2^15. Pero cada línea esta formada por
+64 bits = 8 bytes = 2^3
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+SESION 3-2
+Se puede sacar la política de correspondencia configurada manteniendo el mouse en los valores del address
+EJ 1: Ejemplo de correspondencia directa
+Nº líneas de cache = 8
+Asociatividad = 1
+15 bits dirección de memoria
+Tamaño de línea de 8 bytes
+Política de escritura write-back
+Tamaño de cache: 64 bytes 
+
+Recuerda que la estrategia de correspondencia directa es un caso particular de la estrategia asociativa por 
+conjuntos, donde cada conjunto tiene una única vía.
+
+EJ 2: Ejemplo de asociatividad por conjuntos
+Nº líneas de cache = 8
+Asociatividad = 2
+15 bits dirección de memoria
+Tamaño de línea de 8 bytes
+Política de escritura write-back
+Tamaño de cache: 64 bytes 
+
+Debido a que contamos con un total de 8 líneas de caché y hemos establecido una asociatividad de 2 vías, es decir, 
+2 líneas por conjunto, hemos configurado una caché mediante la política de correspondencia asociativa por conjuntos
+
+¿Cuántas líneas diferentes de caché son utilizadas entre todos los accesos?
+- 6 (porq mirando las label, todas tienen valores diferentes de 000h excepto 2, es decir, 8-2 = 6 
+
+EJ 3: Ejemplo de totalmente asociativa
+Nº líneas de cache = 8
+Asociatividad = 8
+15 bits dirección de memoria
+Tamaño de línea de 8 bytes
+Política de escritura write-back
+Tamaño de cache: 64 bytes 
+
+La configuración actual dispone de un total de 8 líneas de caché con una asociatividad de 8 vías por conjunto.
+Ahora sólo tenemos un único conjunto de 8 vías
+
+¿Qué afecta más en la tasa de acierto, modificar el tamaño de bloque o modificar la política de correspondencia? 
+¿Dónde aprecias mejores resultados?
+- Usando la misma política de correspondencia, bloques de memoria mayores producen tasas de acierto superiores, 
+excepto en el caso de correspondencia directa en el caso extremo de dos líneas de caché, donde los bloques 
+existentes se alternan continuamente, aumentando la tasa de fallos. Con respecto al cambio de política, 
+se puede apreciar que la totalmente asociativa alcanza la mayor tasa de acierto (98.58%), bastante más que 
+la conseguida en correspondencia directa, donde no se supera el 80% en ningún caso.
+
+
+
